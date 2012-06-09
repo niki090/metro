@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:ATE="http://ns.adobe.com/ate/2009" 
+		 xmlns:ai="http://ns.adobe.com/ai/2009" 
+		 xmlns:fc="http://ns.adobe.com/flashcatalyst/2009" 
+		 xmlns:d="http://ns.adobe.com/fxg/2008/dt" 
+		 xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:lib="assets.graphics.metro_map_color_original.*" 
+		 xmlns:flm="http://ns.adobe.com/flame/2008">
+	<fx:DesignLayer d:id="4" d:userLabel="river">
+		<s:Path data="M 11 1472.3 L 11 1197.14 L 65.184 1142.96 L 65.184 988.822 L 227.89 988.822 L 295.99 920.495 L 295.99 831.578 L 240.379 776.948 L 240.379 684.517 L 373.68 684.517 L 461.709 596.484 L 461.709 331.172 L 284.56 154.022 L 427.581 11" d:userLabel="huangpu river" winding="nonZero" x="1111.68" y="194.971">
+			<s:stroke>
+				<s:SolidColorStroke caps="none" color="#D2ECFA" joints="miter" miterLimit="4" weight="22"/>
+			</s:stroke>
+		</s:Path>
+		<s:Path data="M 860.867 204.235 L 208.754 204.235 L 5.5 5.5" d:userLabel="huangpu river" winding="nonZero" x="261.808" y="1457.46">
+			<s:stroke>
+				<s:SolidColorStroke caps="none" color="#D2ECFA" joints="miter" miterLimit="4" weight="11"/>
+			</s:stroke>
+		</s:Path>
+		<s:BitmapImage ai:embed="1" smooth="true" source="@Embed('/images/train.png')" x="494" y="997"/>
+		<s:BitmapImage ai:embed="1" smooth="true" source="@Embed('/images/train.png')" x="1151" y="793"/>
+		<s:BitmapImage ai:embed="1" smooth="true" source="@Embed('/images/train.png')" x="876" y="739"/>
+		<s:BitmapImage ai:embed="1" smooth="true" source="@Embed('/images/train.png')" x="974" y="1293"/>
+		<s:BitmapImage ai:embed="1" smooth="true" source="@Embed('/images/airport.png')" x="2056" y="1263"/>
+		<s:BitmapImage ai:embed="1" smooth="true" source="@Embed('/images/airport.png')" x="602" y="1064"/>
+	</fx:DesignLayer>
+</s:Group>

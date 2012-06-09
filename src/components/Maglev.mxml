@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:ATE="http://ns.adobe.com/ate/2009" 
+		 xmlns:ai="http://ns.adobe.com/ai/2009" 
+		 xmlns:fc="http://ns.adobe.com/flashcatalyst/2009" 
+		 xmlns:d="http://ns.adobe.com/fxg/2008/dt" 
+		 xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:lib="assets.graphics.metro_map_color_original.*" 
+		 xmlns:flm="http://ns.adobe.com/flame/2008">
+	<fx:DesignLayer d:id="5" d:userLabel="metro line">
+		<s:Group d:userLabel="maglev" x="1669" y="1085">
+			<s:Path data="M 1.8 1.8 L 103.416 103.414 L 379.553 103.414 L 379.553 183.273" winding="nonZero" x="0.8" y="2.272">
+				<s:stroke>
+					<s:SolidColorStroke color="#F29600" miterLimit="4" weight="3.6"/>
+				</s:stroke>
+			</s:Path>
+			<s:Path data="M 1.8 1.8 L 101.389 101.392 L 379.658 101.392 L 379.658 184.605" winding="nonZero" x="3.844" y="0.94">
+				<s:stroke>
+					<s:SolidColorStroke color="#00808C" miterLimit="4" weight="3.6"/>
+				</s:stroke>
+			</s:Path>
+		</s:Group>
+		<s:RichText ai:aa="2" color="#B4B4B5" columnCount="1" fontFamily="Arial" fontSize="11" fontStyle="italic" fontWeight="bold" 
+					d:id="4" kerning="off" lineHeight="175%" tabStops="S36" text="Maglev Line" 
+					d:userLabel="Maglev Line" flm:variant="1" whiteSpaceCollapse="preserve" x="1782" y="1174"/>
+	</fx:DesignLayer>
+</s:Group>

@@ -1,0 +1,28 @@
+/* CSS file */
+@namespace s "library://ns.adobe.com/flex/spark";
+@namespace mx "library://ns.adobe.com/flex/mx";
+
+.globalStyle{
+	backgroundColor:#ffffeb;
+}
+.borderSkin{
+	borderColor:#FF0000;
+}
+.lineLabel{
+    color:#FFFFFF;
+	fontSize:16;
+	fontWeight:bold;
+	textAlign:center;
+	verticalAlign:middle;
+}
+
+#stationList{
+	textIndent:20;
+	backgroundColor:#FFFFFF;
+}
+#stationGroup{
+	backgroundColor:#ffffeb;
+}
+
+#pdfLink{
+}

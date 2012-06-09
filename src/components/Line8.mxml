@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:ATE="http://ns.adobe.com/ate/2009" 
+		 xmlns:ai="http://ns.adobe.com/ai/2009" 
+		 xmlns:fc="http://ns.adobe.com/flashcatalyst/2009" 
+		 xmlns:d="http://ns.adobe.com/fxg/2008/dt" 
+		 xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:lib="assets.graphics.metro_map_color_original.*" 
+		 xmlns:flm="http://ns.adobe.com/flame/2008">
+	<fx:DesignLayer d:id="30" d:userLabel="line8">
+		<s:Path data="M 286.244 2.64 L 286.244 195.736 L 43.537 195.736 L 2.64 236.632 L 2.64 397.96 L 89.642 483.968 L 89.642 727.034 L 33.315 775.368 L 33.315 1045.91" d:userLabel="8" winding="nonZero" x="1221.53" y="540.024">
+			<s:stroke>
+				<s:SolidColorStroke color="#0096DF" miterLimit="4" weight="5.28"/>
+			</s:stroke>
+		</s:Path>
+		<s:Group d:userLabel="8" x="1462" y="505">
+			<s:Rect height="18" radiusX="2.24564" radiusY="2.24564" width="50" x="0" y="0">
+				<s:fill>
+					<s:SolidColor color="#0096DF"/>
+				</s:fill>
+			</s:Rect>
+			<s:RichText ai:aa="2" color="#FFFFFF" columnCount="1" fontFamily="Arial" fontSize="12.32" fontWeight="bold" d:id="31" kerning="off" lineHeight="175%" tabStops="S57.0239906311035" text="Line 8" textAlign="center" d:userLabel="Line 8" flm:variant="18" whiteSpaceCollapse="preserve" x="7" y="4"/>
+		</s:Group>
+		<s:Group d:userLabel="8" x="1273" y="1572">
+			<s:Rect height="17" radiusX="2.24564" radiusY="2.24564" width="50" x="0" y="0">
+				<s:fill>
+					<s:SolidColor color="#0096DF"/>
+				</s:fill>
+			</s:Rect>
+			<s:RichText ai:aa="2" color="#FFFFFF" columnCount="1" fontFamily="Arial" fontSize="12.32" fontWeight="bold" d:id="32" kerning="off" lineHeight="175%" tabStops="S57.0239906311035" text="Line 8" textAlign="center" d:userLabel="Line 8" flm:variant="19" whiteSpaceCollapse="preserve" x="8" y="4"/>
+		</s:Group>
+	</fx:DesignLayer>
+</s:Group>

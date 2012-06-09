@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx" 
+			   xmlns:components="components.*"
+			   minWidth="900" minHeight="600"
+			   initialize="stationGroup.stationSrv.send()"
+			   creationComplete="initApp()" currentState="normal" xmlns:maps="com.google.maps.*">
+	<fx:Style source="basic.css"/>
+	<fx:Script>
+		<![CDATA[
+			import eventObjects.ShowMap;
+			
+			import mx.collections.ArrayCollection;
+			import mx.controls.Alert;
+			import mx.controls.LinkButton;
+			
+			import spark.events.IndexChangeEvent;
+			[Bindable]private var position:ArrayCollection;
+			private var stationId:String;
+			[Bindable]private var dNum:String;
+			[Bindable]private var cNum:String;
+			private var centerX:Number;
+			private var centerY:Number;
+			[Bindable]private var spanX:Number;
+			[Bindable]private var spanY:Number;
+			private function initApp():void
+			{
+				/* 将地图定位至显示器中央，适当偏移 */
+			    stationGroup.move((this.screen.width-stationGroup.width)/2-50,(this.screen.height-stationGroup.height)/2);
+				/* 创建本地共享对象 */
+				var lngShare:SharedObject=SharedObject.getLocal("lngShare");
+				/* 根据本地对象缓存语言种类选择不同视图状态 */
+				if(lngShare.data.lng=="Chinese")
+				{
+					this.currentState="lng_cn";
+					stationGroup.currentState="label_cn";
+					stationList.labelField="name_cn";/* ComboBox列表标签绑定中文站点 */
+					lngVersion.selectedIndex=1;
+				}else
+				{
+					this.currentState="normal";
+					stationGroup.currentState="normal";
+					stationList.labelField="name_en";/* ComboBox列表标签绑定英文站点 */
+					lngVersion.selectedIndex=0;
+				}
+			}
+			/* 显示站点周边信息 */
+			protected function stationGroup_showMapHandler(event:ShowMap):void
+			{
+				navigator.visible=true;
+				name_cn.text=event.stationSelected.name_cn; 
+				name_en.text=event.stationSelected.name_en;
+				/* 设置地图中心点 */
+				centerX=this.width/2;
+				centerY=this.height/2;
+				/* 将站点局部坐标转换为地图全局坐标 */
+				var newPoint:Point=this.stationGroup.localToGlobal(new Point(event.stationSelected.posX,event.stationSelected.posY));
+				/* 计算相对中心点移动偏移量 */
+				spanX=centerX-newPoint.x-1024;
+				spanY=centerY-newPoint.y-512;
+				moveMap.play();
+				/* 如果地图已创建，更改地图坐标 */
+				position=new ArrayCollection(event.stationSelected.coordinate);
+				if(popUpMap.mapCreation==true){
+					popUpMap.mapChange(position);
+				}
+				stationId=event.stationSelected.id;
+				dNum=event.stationSelected.dnum;
+				cNum=event.stationSelected.cnum;
+			}
+			protected function startDrag_mouseDownHandler(event:MouseEvent):void
+			{
+				event.currentTarget.startDrag();
+			}
+			protected function stopDrag_mouseUpHandler(event:MouseEvent):void
+			{
+				event.currentTarget.stopDrag();
+			}
+			protected function displayClose_mouseDownHandler(event:MouseEvent):void
+			{
+				navigator.visible=false;
+				stationGroup.indicator.visible=false;
+			}
+
+			protected function stationList_changeHandler(event:IndexChangeEvent):void
+			{
+				var stnId:int=ComboBox(event.target).selectedItem.id;
+				if(stnId)
+				{
+					var clickEvent:MouseEvent = new MouseEvent("click");
+					this.stationGroup["stn_"+stnId].dispatchEvent(clickEvent);	
+				}else
+				{
+					Alert.show("您输入的站点不存在。");
+				}
+			}
+
+			/* 根据语言设置修改本列共享对象，视图状态 */
+			protected function lngVersion_changeHandler(event:IndexChangeEvent):void
+			{
+				var lngShare:SharedObject=SharedObject.getLocal("lngShare");
+				 if(lngVersion.selectedIndex==1)
+				 {
+					this.currentState="lng_cn";
+				 	stationGroup.currentState="label_cn";
+					stationList.labelField="name_cn";
+					lngShare.data.lng="Chinese";
+				 }else
+				 {
+					this.currentState="normal";
+				 	stationGroup.currentState="normal";
+					stationList.labelField="name_en";
+					lngShare.data.lng="English";
+				 }
+			}
+
+			protected function venueLink_clickHandler(event:MouseEvent):void
+			{
+				navigateToURL(new URLRequest("http://live.shanghaidaily.com/directory_list.asp?station="+stationId));
+			}
+
+			protected function propertyLink_clickHandler(event:MouseEvent):void
+			{
+				navigateToURL(new URLRequest("http://live.shanghaidaily.com"));
+			}
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<s:Fade id="showEff" alphaFrom="0.0" alphaTo="1.0" duration="500"/>
+		<s:Fade id="hideEff" alphaFrom="1.0" alphaTo="0.0" duration="100"/>
+		<s:Power id="powerEasing" exponent="8"/>
+		<s:Move id="moveMap" target="{stationGroup}"
+			    xBy="{spanX}" yBy="{spanY}"
+				duration="600"
+			    easer="{powerEasing}"/>
+		<mx:Glow id="glowLogo" duration="100" alphaFrom="0" alphaTo=".3"
+				 blurXFrom="0.0" blurXTo="5.0" blurYFrom="0.0" blurYTo="5.0"  
+				 strength="2" color="0xCCFFCC" target="{logo}"/>
+		<mx:Glow id="unglowLogo" duration="300" alphaFrom=".3" alphaTo="0"
+				 blurXFrom="5.0" blurXTo="0.0" blurYFrom="5.0" blurYTo="0.0"  
+				 strength="2" color="0xCCFFCC" target="{logo}"/>
+	</fx:Declarations>
+	<s:states>
+		<s:State name="normal"/>
+		<s:State name="lng_cn"/>
+	</s:states>
+	<components:StationGroup id="stationGroup"
+							 mouseDown="startDrag_mouseDownHandler(event)"
+							 mouseUp="stopDrag_mouseUpHandler(event)"
+							 showMap="stationGroup_showMapHandler(event)"/>
+	    <s:BorderContainer width="100%" height="54" styleName="borderSkin" borderVisible="false" dropShadowVisible="true" backgroundColor="#000000" backgroundAlpha="0.65">
+			<s:layout>
+				<s:HorizontalLayout verticalAlign="bottom" paddingLeft="2" paddingBottom="2" gap="10"/>
+			</s:layout>
+			<s:Group>
+				<mx:Image id="logo" buttonMode="true"
+						  click="navigateToURL(new URLRequest('http://live.shanghaidaily.com'),'_self');"
+						  mouseOut="unglowLogo.play()" mouseOver="glowLogo.play()"
+						  source="images/home.png"
+						  source.normal="images/metro.png"/>
+				<mx:Image id="metroLogo" includeIn="lng_cn" x="240" source="images/metro.png"/>
+			</s:Group>
+			<mx:Button id="pdfLink" label="PDF Download" color="0xFFFFFF" fontSize="14" buttonMode="true"
+						   click="navigateToURL(new URLRequest('assets/metro.pdf'));"/>
+		</s:BorderContainer>
+	<s:Group width="345" top="29" right="10">
+		<s:ComboBox id="stationList" right="125" fontSize="12"
+					width="220" height="25"
+					dataProvider="{stationGroup.stationData}" 
+				    focusIn="IME.enabled=true;"
+					labelField="name_en"
+					change="stationList_changeHandler(event)"/>
+		<s:Image source="images/search.png" left="5" top="5"/>
+		<s:DropDownList id="lngVersion" 
+						height="25" width="115" right="5" 
+						fontSize="16"
+					    selectedIndex="0"
+						change="lngVersion_changeHandler(event)">
+			<s:ArrayList>
+				<fx:String>English</fx:String>
+				<fx:String>中文(简体)</fx:String>
+			</s:ArrayList>
+		</s:DropDownList>
+	</s:Group>
+	    <s:BorderContainer width="390" height="64" bottom="-1" right="-1" borderColor="#666666" backgroundAlpha=".6">
+			<s:layout>
+				<s:VerticalLayout gap="7" paddingLeft="5"/>
+			</s:layout>
+				<s:Group id="lineGroup">
+					<s:layout>
+						<s:HorizontalLayout gap="5" paddingTop="5" verticalAlign="bottom"/>
+					</s:layout>
+					<s:Label text="Lines" text.lng_cn="线路" fontSize="14"/>
+					<s:Label id="line1" text="1" styleName="lineLabel" width="26" height="20" backgroundColor="#D71717"/>
+					<s:Label id="line2" text="2" styleName="lineLabel" width="26" height="20" backgroundColor="#009844"/>
+					<s:Label id="line3" text="3" styleName="lineLabel" width="26" height="20" backgroundColor="#EBDE08" color="#333333"/>
+					<s:Label id="line4" text="4" styleName="lineLabel" width="26" height="20" backgroundColor="#5C07B3"/>
+					<s:Label id="line5" text="5" styleName="lineLabel" width="26" height="20" backgroundColor="#88359a"/>
+					<s:Label id="line6" text="6" styleName="lineLabel" width="26" height="20" backgroundColor="#f53766"/>
+					<s:Label id="line7" text="7" styleName="lineLabel" width="26" height="20" backgroundColor="#F05214"/>
+					<s:Label id="line8" text="8" styleName="lineLabel" width="26" height="20" backgroundColor="#1370D0"/>
+					<s:Label id="line9" text="9" styleName="lineLabel" width="26" height="20" backgroundColor="#7DCCF3"/>
+					<s:Label id="line10" text="10" styleName="lineLabel" width="26" height="20" backgroundColor="#b19ecb"/>
+					<s:Label id="line11" text="11" styleName="lineLabel" width="26" height="20" backgroundColor="#AC3623"/>	
+				</s:Group>
+			    <s:HGroup gap="5" verticalAlign="middle">
+					<s:Button skinClass="skins.Station0"/>
+					<s:Label fontSize="12" text="station" text.lng_cn="普通站点"/>
+					<mx:Spacer width="3"/>
+						<s:Button skinClass="skins.Station180"/>
+						<s:VGroup>
+						<s:Label fontSize="12" text="interchange station" text.lng_cn="站内换乘"/>
+						<s:Label fontSize="12" text="*transfer station" text.lng_cn="*出站换乘"/>
+						</s:VGroup>							
+					<mx:Spacer width="3"/>
+					<s:VGroup>
+					<s:HGroup>
+						<mx:Image source="images/being_built.png"/>
+						<s:Label fontSize="12" text="being built" text.lng_cn="在建线路"/>
+					</s:HGroup>
+					<s:HGroup>
+						<mx:Image source="images/planned.png"/>
+						<s:Label fontSize="12" text="planed" text.lng_cn="计划线路"/>
+					</s:HGroup>
+					</s:VGroup>
+				</s:HGroup>
+	    </s:BorderContainer>
+		<s:BorderContainer id="navigator" visible="false"
+						   width="400" height="395"
+						   top="80" left="15"
+						   showEffect="{showEff}"
+						   hideEffect="{hideEff}"
+						   dropShadowVisible="true">
+			<s:layout>
+				<s:VerticalLayout gap="1"/>
+			</s:layout>
+			<s:Group>
+				<s:VGroup id="controlBar" mouseDown="navigator.startDrag()" mouseUp="navigator.stopDrag()"
+						  width="395" height="50" paddingLeft="10" paddingTop="10">
+					<s:Label id="name_en" fontSize="18"/>
+					<s:Label id="name_cn" fontSize="16" fontWeight="bold" width="180"/>
+				</s:VGroup>	
+				<mx:Image source="images/close.gif" 
+						  id="displayClose" buttonMode="true" top="5" right="5"
+						  mouseDown="displayClose_mouseDownHandler(event)"/>
+			</s:Group>
+			<mx:Spacer height="3"/>
+			<s:Group>
+				<s:Button id="venueLink" label="Nearby Venue ({dNum})" buttonMode="true" click="venueLink_clickHandler(event)"/>
+				<mx:LinkButton id="fullMap" label="Click to view full map" left="270"
+							   click="navigateToURL(new URLRequest('http://maps.google.com/maps?ll='+position[0]+','+position[1]),'_blank')"/>
+			</s:Group>
+			<components:PopUpMap id="popUpMap"/>
+		</s:BorderContainer>
+</s:Application>

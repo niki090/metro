@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:ATE="http://ns.adobe.com/ate/2009" 
+		 xmlns:ai="http://ns.adobe.com/ai/2009" 
+		 xmlns:fc="http://ns.adobe.com/flashcatalyst/2009" 
+		 xmlns:d="http://ns.adobe.com/fxg/2008/dt" 
+		 xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:lib="assets.graphics.metro_map_color_original.*" 
+		 xmlns:flm="http://ns.adobe.com/flame/2008">
+	<fx:DesignLayer d:id="14" d:userLabel="line3">
+		<s:Path data="M 64.119 939.863 L 139.369 939.863 L 175.527 903.708 L 140.831 869.006 L 79.796 869.006 L 79.796 831.507 L 2.64 753.354 L 2.64 596.108 L 102.068 497.554 L 313.39 497.554 L 350.874 460.07 L 350.874 242.773 L 371.973 223.548 L 371.973 52.625 L 321.988 2.64" d:userLabel="3" winding="nonZero" x="917.642" y="342.167">
+			<s:stroke>
+				<s:SolidColorStroke color="#FFD527" miterLimit="4" weight="5.28"/>
+			</s:stroke>
+		</s:Path>
+		<s:Group d:userLabel="3" x="1188" y="313">
+			<s:Rect height="17" radiusX="2.24564" radiusY="2.24564" width="50" x="0" y="0">
+				<s:fill>
+					<s:SolidColor color="#FFD527"/>
+				</s:fill>
+			</s:Rect>
+			<s:RichText ai:aa="2" color="#FFFFFF" columnCount="1" fontFamily="Arial" fontSize="12.32" fontWeight="bold" d:id="15" kerning="off" lineHeight="175%" tabStops="S57.0239906311035" text="Line 3" textAlign="center" d:userLabel="Line 3" flm:variant="7" whiteSpaceCollapse="preserve" x="8" y="4"/>
+		</s:Group>
+		<s:Group d:userLabel="3" x="1030" y="1296">
+			<s:Rect height="17" radiusX="2.24564" radiusY="2.24564" width="50" x="0" y="0">
+				<s:fill>
+					<s:SolidColor color="#FFD527"/>
+				</s:fill>
+			</s:Rect>
+			<s:RichText ai:aa="2" color="#FFFFFF" columnCount="1" fontFamily="Arial" fontSize="12.32" fontWeight="bold" d:id="16" kerning="off" lineHeight="175%" tabStops="S57.0239906311035" text="Line 3" textAlign="center" d:userLabel="Line 3" flm:variant="8" whiteSpaceCollapse="preserve" x="7" y="4"/>
+		</s:Group>
+	</fx:DesignLayer>
+</s:Group>

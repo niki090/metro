@@ -1,0 +1,1697 @@
+<?xml version="1.0" encoding="utf-8"?>
+- <stations>
+- <station>
+  <id>3</id> 
+  <name_en>Shiguang Rd</name_en> 
+  <name_cn>市光路</name_cn> 
+  <metro>8,</metro> 
+  <coordinate>31.322086,121.532189</coordinate> 
+  </station>
+- <station>
+  <id>4</id> 
+  <name_en>Fujin Rd</name_en> 
+  <name_cn>富锦路</name_cn> 
+  <metro>1</metro> 
+  <coordinate>31.392714,121.4249</coordinate> 
+  </station>
+- <station>
+  <id>5</id> 
+  <name_en>Youyi Rd W.</name_en> 
+  <name_cn>友谊西路</name_cn> 
+  <metro>1,</metro> 
+  <coordinate>31.382044,121.427786</coordinate> 
+  </station>
+- <station>
+  <id>6</id> 
+  <name_en>Bao'an Highway</name_en> 
+  <name_cn>宝安公路</name_cn> 
+  <metro>1,</metro> 
+  <coordinate>31.369605,121.431059</coordinate> 
+  </station>
+- <station>
+  <id>7</id> 
+  <name_en>Gongfu Xincun</name_en> 
+  <name_cn>共富新村</name_cn> 
+  <metro>1,</metro> 
+  <coordinate>31.355414,121.43409</coordinate> 
+  </station>
+- <station>
+  <id>8</id> 
+  <name_en>Hulan Rd</name_en> 
+  <name_cn>呼兰路</name_cn> 
+  <metro>1,</metro> 
+  <coordinate>31.339967,121.437671</coordinate> 
+  </station>
+- <station>
+  <id>9</id> 
+  <name_en>Tonghe Xincun</name_en> 
+  <name_cn>通河新村</name_cn> 
+  <metro>1,</metro> 
+  <coordinate>31.331259,121.441479</coordinate> 
+  </station>
+- <station>
+  <id>10</id> 
+  <name_en>Gongkang Rd</name_en> 
+  <name_cn>共康路</name_cn> 
+  <metro>1,</metro> 
+  <coordinate>31.318791,121.447169</coordinate> 
+  </station>
+- <station>
+  <id>11</id> 
+  <name_en>Pengpu Xincun</name_en> 
+  <name_cn>彭浦新村</name_cn> 
+  <metro>1,</metro> 
+  <coordinate>31.306752,121.44864</coordinate> 
+  </station>
+- <station>
+  <id>12</id> 
+  <name_en>Wenshui Rd</name_en> 
+  <name_cn>汶水路</name_cn> 
+  <metro>1,</metro> 
+  <coordinate>31.293095,121.450134</coordinate> 
+  </station>
+- <station>
+  <id>13</id> 
+  <name_en>Shanghai Circus World</name_en> 
+  <name_cn>上海马戏城</name_cn> 
+  <metro>1,</metro> 
+  <coordinate>31.279561,121.452043</coordinate> 
+  </station>
+- <station>
+  <id>14</id> 
+  <name_en>Yanchang Rd</name_en> 
+  <name_cn>延长路</name_cn> 
+  <metro>1,</metro> 
+  <coordinate>31.2714,121.455517</coordinate> 
+  </station>
+- <station>
+  <id>15</id> 
+  <name_en>Zhongshan Rd N.</name_en> 
+  <name_cn>中山北路</name_cn> 
+  <metro>1,</metro> 
+  <coordinate>31.259088,121.459144</coordinate> 
+  </station>
+- <station>
+  <id>16</id> 
+  <name_en>Shanghai Railway Station</name_en> 
+  <name_cn>上海火车站</name_cn> 
+  <metro>1, 3, 4,</metro> 
+  <coordinate>31.249332,121.458744</coordinate> 
+  </station>
+- <station>
+  <id>17</id> 
+  <name_en>Hanzhong Rd</name_en> 
+  <name_cn>汉中路</name_cn> 
+  <metro>1,</metro> 
+  <coordinate>31.241746,121.458592</coordinate> 
+  </station>
+- <station>
+  <id>18</id> 
+  <name_en>Xinzha Rd</name_en> 
+  <name_cn>新闸路</name_cn> 
+  <metro>1,</metro> 
+  <coordinate>31.238456,121.467936</coordinate> 
+  </station>
+- <station>
+  <id>19</id> 
+  <name_en>People's Square</name_en> 
+  <name_cn>人民广场</name_cn> 
+  <metro>1, 2, 8,</metro> 
+  <coordinate>31.232844,121.475371</coordinate> 
+  </station>
+- <station>
+  <id>20</id> 
+  <name_en>Huangpi Rd S.</name_en> 
+  <name_cn>黄陂南路</name_cn> 
+  <metro>1,</metro> 
+  <coordinate>31.222729,121.473293</coordinate> 
+  </station>
+- <station>
+  <id>21</id> 
+  <name_en>Shaanxi Rd S.</name_en> 
+  <name_cn>陕西南路</name_cn> 
+  <metro>1, 10,</metro> 
+  <coordinate>31.216169,121.459157</coordinate> 
+  </station>
+- <station>
+  <id>22</id> 
+  <name_en>Changshu Rd</name_en> 
+  <name_cn>常熟路</name_cn> 
+  <metro>1, 7,</metro> 
+  <coordinate>31.213405,121.451076</coordinate> 
+  </station>
+- <station>
+  <id>23</id> 
+  <name_en>Hengshan Rd</name_en> 
+  <name_cn>衡山路</name_cn> 
+  <metro>1, 7,</metro> 
+  <coordinate>31.204715,121.446551</coordinate> 
+  </station>
+- <station>
+  <id>24</id> 
+  <name_en>Xujiahui</name_en> 
+  <name_cn>徐家汇</name_cn> 
+  <metro>1, 9,</metro> 
+  <coordinate>31.195352,121.436785</coordinate> 
+  </station>
+- <station>
+  <id>25</id> 
+  <name_en>Shanghai Indoor Stadium</name_en> 
+  <name_cn>上海体育馆</name_cn> 
+  <metro>1,</metro> 
+  <coordinate>31.182888,121.437469</coordinate> 
+  </station>
+- <station>
+  <id>26</id> 
+  <name_en>Caobao Rd</name_en> 
+  <name_cn>漕宝路</name_cn> 
+  <metro>1,</metro> 
+  <coordinate>31.168233,121.434975</coordinate> 
+  </station>
+- <station>
+  <id>27</id> 
+  <name_en>Shanghai South Railway Station</name_en> 
+  <name_cn>上海南站</name_cn> 
+  <metro>1, 3,</metro> 
+  <coordinate>31.155341,121.427325</coordinate> 
+  </station>
+- <station>
+  <id>28</id> 
+  <name_en>Jinjiang Park</name_en> 
+  <name_cn>锦江乐园</name_cn> 
+  <metro>1,</metro> 
+  <coordinate>31.142089,121.413825</coordinate> 
+  </station>
+- <station>
+  <id>29</id> 
+  <name_en>Lianhua Rd</name_en> 
+  <name_cn>莲花路</name_cn> 
+  <metro>1,</metro> 
+  <coordinate>31.131072,121.402673</coordinate> 
+  </station>
+- <station>
+  <id>30</id> 
+  <name_en>Waihuan Rd</name_en> 
+  <name_cn>外环路</name_cn> 
+  <metro>1,</metro> 
+  <coordinate>31.120558,121.392861</coordinate> 
+  </station>
+- <station>
+  <id>31</id> 
+  <name_en>Xinzhuang</name_en> 
+  <name_cn>莘庄</name_cn> 
+  <metro>1, 5,</metro> 
+  <coordinate>31.111451,121.385059</coordinate> 
+  </station>
+- <station>
+  <id>32</id> 
+  <name_en>Nenjiang Rd</name_en> 
+  <name_cn>嫩江路</name_cn> 
+  <metro>8,</metro> 
+  <coordinate>31.315148,121.531963</coordinate> 
+  </station>
+- <station>
+  <id>33</id> 
+  <name_en>Xujingdong</name_en> 
+  <name_cn>徐泾东</name_cn> 
+  <metro>2,</metro> 
+  <coordinate>31.187682,121.298212</coordinate> 
+  </station>
+- <station>
+  <id>34</id> 
+  <name_en>Hongqiao Railway Station</name_en> 
+  <name_cn>虹桥火车站</name_cn> 
+  <metro>2, 10,</metro> 
+  <coordinate>31.192681,121.321523</coordinate> 
+  </station>
+- <station>
+  <id>35</id> 
+  <name_en>Hongqiao Airport Terminal 2</name_en> 
+  <name_cn>虹桥2号航站楼</name_cn> 
+  <metro>2, 10,</metro> 
+  <coordinate>31.193202,121.332093</coordinate> 
+  </station>
+- <station>
+  <id>36</id> 
+  <name_en>Xiangyin Rd</name_en> 
+  <name_cn>翔殷路</name_cn> 
+  <metro>8,</metro> 
+  <coordinate>31.30515,121.531987</coordinate> 
+  </station>
+- <station>
+  <id>37</id> 
+  <name_en>Songhong Rd</name_en> 
+  <name_cn>淞虹路</name_cn> 
+  <metro>2,</metro> 
+  <coordinate>31.218254,121.359277</coordinate> 
+  </station>
+- <station>
+  <id>38</id> 
+  <name_en>Huangxing Park</name_en> 
+  <name_cn>黄兴公园</name_cn> 
+  <metro>8,</metro> 
+  <coordinate>31.29651,121.532757</coordinate> 
+  </station>
+- <station>
+  <id>39</id> 
+  <name_en>Yanji Rd M.</name_en> 
+  <name_cn>延吉中路</name_cn> 
+  <metro>8,</metro> 
+  <coordinate>31.288293,121.534941</coordinate> 
+  </station>
+- <station>
+  <id>40</id> 
+  <name_en>Huangxing Rd</name_en> 
+  <name_cn>黄兴路</name_cn> 
+  <metro>8,</metro> 
+  <coordinate>31.278659,121.528031</coordinate> 
+  </station>
+- <station>
+  <id>41</id> 
+  <name_en>Jiangpu Rd</name_en> 
+  <name_cn>江浦路</name_cn> 
+  <metro>8,</metro> 
+  <coordinate>31.274888,121.517997</coordinate> 
+  </station>
+- <station>
+  <id>42</id> 
+  <name_en>Anshan Xincun</name_en> 
+  <name_cn>鞍山新村</name_cn> 
+  <metro>8,</metro> 
+  <coordinate>31.272854,121.509529</coordinate> 
+  </station>
+- <station>
+  <id>43</id> 
+  <name_en>Siping Rd</name_en> 
+  <name_cn>四平路</name_cn> 
+  <metro>8, 10,</metro> 
+  <coordinate>31.274982,121.501518</coordinate> 
+  </station>
+- <station>
+  <id>44</id> 
+  <name_en>Quyang Rd</name_en> 
+  <name_cn>曲阳路</name_cn> 
+  <metro>8,</metro> 
+  <coordinate>31.276524,121.490738</coordinate> 
+  </station>
+- <station>
+  <id>45</id> 
+  <name_en>Yanggao Rd M.</name_en> 
+  <name_cn>杨高中路</name_cn> 
+  <metro>9,</metro> 
+  <coordinate>31.22758398378793,121.54866110533476</coordinate> 
+  </station>
+- <station>
+  <id>46</id> 
+  <name_en>Beixinjing</name_en> 
+  <name_cn>北新泾</name_cn> 
+  <metro>2,</metro> 
+  <coordinate>31.216788,121.373544</coordinate> 
+  </station>
+- <station>
+  <id>47</id> 
+  <name_en>Century Avenue</name_en> 
+  <name_cn>世纪大道</name_cn> 
+  <metro>2, 4, 6,</metro> 
+  <coordinate>31.229215863633204,121.52631796896457</coordinate> 
+  </station>
+- <station>
+  <id>48</id> 
+  <name_en>Weining Rd</name_en> 
+  <name_cn>威宁路</name_cn> 
+  <metro>2,</metro> 
+  <coordinate>31.215029,121.386295</coordinate> 
+  </station>
+- <station>
+  <id>49</id> 
+  <name_en>Shangcheng Rd</name_en> 
+  <name_cn>商城路</name_cn> 
+  <metro>9,</metro> 
+  <coordinate>31.22978695758289,121.51584897190332</coordinate> 
+  </station>
+- <station>
+  <id>50</id> 
+  <name_en>Xiaonanmen</name_en> 
+  <name_cn>小南门</name_cn> 
+  <metro>9,</metro> 
+  <coordinate>31.21669794775378,121.49837303906679</coordinate> 
+  </station>
+- <station>
+  <id>51</id> 
+  <name_en>Lujiabang Rd</name_en> 
+  <name_cn>陆家浜路</name_cn> 
+  <metro>8, 9,</metro> 
+  <coordinate>31.212223093107866,121.48597989231348</coordinate> 
+  </station>
+- <station>
+  <id>52</id> 
+  <name_en>Hongkou Football Stadium</name_en> 
+  <name_cn>虹口足球场站</name_cn> 
+  <metro>3, 8,</metro> 
+  <coordinate>31.27025,121.479577</coordinate> 
+  </station>
+- <station>
+  <id>53</id> 
+  <name_en>Loushanguan Rd</name_en> 
+  <name_cn>娄山关</name_cn> 
+  <metro>2,</metro> 
+  <coordinate>31.211003,121.403893</coordinate> 
+  </station>
+- <station>
+  <id>54</id> 
+  <name_en>Madang Rd</name_en> 
+  <name_cn>马当路</name_cn> 
+  <metro>9,</metro> 
+  <coordinate>31.20917693961523,121.4763879776001</coordinate> 
+  </station>
+- <station>
+  <id>55</id> 
+  <name_en>Zhongshan Park</name_en> 
+  <name_cn>中山公园</name_cn> 
+  <metro>2, 3, 4,</metro> 
+  <coordinate>31.21816,121.415706</coordinate> 
+  </station>
+- <station>
+  <id>56</id> 
+  <name_en>Dapuqiao</name_en> 
+  <name_cn>打浦桥</name_cn> 
+  <metro>9,</metro> 
+  <coordinate>31.206112048300756,121.4687705039978</coordinate> 
+  </station>
+- <station>
+  <id>57</id> 
+  <name_en>Jiangsu Rd</name_en> 
+  <name_cn>江苏路</name_cn> 
+  <metro>2, 11,</metro> 
+  <coordinate>31.219493,121.431458</coordinate> 
+  </station>
+- <station>
+  <id>58</id> 
+  <name_en>Jiashan Rd</name_en> 
+  <name_cn>嘉善路</name_cn> 
+  <metro>9,</metro> 
+  <coordinate>31.20287269892839,121.46090626716614</coordinate> 
+  </station>
+- <station>
+  <id>59</id> 
+  <name_en>Zhaojiabang Rd</name_en> 
+  <name_cn>肇嘉浜路</name_cn> 
+  <metro>7, 9,</metro> 
+  <coordinate>31.19958391170638,121.45032495260238</coordinate> 
+  </station>
+- <station>
+  <id>60</id> 
+  <name_en>Jing'an Temple</name_en> 
+  <name_cn>静安寺</name_cn> 
+  <metro>2, 7,</metro> 
+  <coordinate>31.223215,121.446438</coordinate> 
+  </station>
+- <station>
+  <id>61</id> 
+  <name_en>Xizang Rd N.</name_en> 
+  <name_cn>西藏北路</name_cn> 
+  <metro>8,</metro> 
+  <coordinate>31.264002,121.469264</coordinate> 
+  </station>
+- <station>
+  <id>62</id> 
+  <name_en>Yishan Rd</name_en> 
+  <name_cn>宜山路</name_cn> 
+  <metro>4, 3, 9,</metro> 
+  <coordinate>31.186172058750973,121.4274138584733</coordinate> 
+  </station>
+- <station>
+  <id>63</id> 
+  <name_en>Guilin Rd</name_en> 
+  <name_cn>桂林路</name_cn> 
+  <metro>9,</metro> 
+  <coordinate>31.17455005183879,121.41690094023943</coordinate> 
+  </station>
+- <station>
+  <id>64</id> 
+  <name_en>Nanjing Rd W.</name_en> 
+  <name_cn>南京西路</name_cn> 
+  <metro>2,</metro> 
+  <coordinate>31.22972,121.459737</coordinate> 
+  </station>
+- <station>
+  <id>65</id> 
+  <name_en>Zhongxing Rd</name_en> 
+  <name_cn>中兴路</name_cn> 
+  <metro>8,</metro> 
+  <coordinate>31.253171,121.468894</coordinate> 
+  </station>
+- <station>
+  <id>66</id> 
+  <name_en>Caohejing High-Tech Park</name_en> 
+  <name_cn>漕河泾开发区</name_cn> 
+  <metro>9,</metro> 
+  <coordinate>31.170813909142143,121.39799505472183</coordinate> 
+  </station>
+- <station>
+  <id>67</id> 
+  <name_en>Nanjing Rd E.</name_en> 
+  <name_cn>南京东路</name_cn> 
+  <metro>2, 10,</metro> 
+  <coordinate>31.237646,121.484842</coordinate> 
+  </station>
+- <station>
+  <id>68</id> 
+  <name_en>Hechuan Rd</name_en> 
+  <name_cn>合川路</name_cn> 
+  <metro>9,</metro> 
+  <coordinate>31.16692098083429,121.38589091598987</coordinate> 
+  </station>
+- <station>
+  <id>69</id> 
+  <name_en>Qufu Rd</name_en> 
+  <name_cn>曲阜路</name_cn> 
+  <metro>8,</metro> 
+  <coordinate>31.242279,121.471512</coordinate> 
+  </station>
+- <station>
+  <id>70</id> 
+  <name_en>Lujiazui</name_en> 
+  <name_cn>陆家嘴</name_cn> 
+  <metro>2,</metro> 
+  <coordinate>31.238077,121.50163</coordinate> 
+  </station>
+- <station>
+  <id>71</id> 
+  <name_en>Xingzhong Rd</name_en> 
+  <name_cn>星中路</name_cn> 
+  <metro>9,</metro> 
+  <coordinate>31.158067057237552,121.3684119656682</coordinate> 
+  </station>
+- <station>
+  <id>72</id> 
+  <name_en>Qibao</name_en> 
+  <name_cn>七宝</name_cn> 
+  <metro>9,</metro> 
+  <coordinate>31.155034080432312,121.34876009076834</coordinate> 
+  </station>
+- <station>
+  <id>73</id> 
+  <name_en>Dashijie</name_en> 
+  <name_cn>大世界</name_cn> 
+  <metro>10,</metro> 
+  <coordinate>31.227218,121.479269</coordinate> 
+  </station>
+- <station>
+  <id>74</id> 
+  <name_en>Zhongchun Rd</name_en> 
+  <name_cn>中春路</name_cn> 
+  <metro>9,</metro> 
+  <coordinate>31.14935405312184,121.33834909647703</coordinate> 
+  </station>
+- <station>
+  <id>75</id> 
+  <name_en>Laoximen</name_en> 
+  <name_cn>老西门</name_cn> 
+  <metro>8, 10,</metro> 
+  <coordinate>31.218463,121.483169</coordinate> 
+  </station>
+- <station>
+  <id>76</id> 
+  <name_en>Dongchang Rd</name_en> 
+  <name_cn>东昌路</name_cn> 
+  <metro>2,</metro> 
+  <coordinate>31.23325,121.515122</coordinate> 
+  </station>
+- <station>
+  <id>77</id> 
+  <name_en>Jiuting</name_en> 
+  <name_cn>九亭</name_cn> 
+  <metro>9,</metro> 
+  <coordinate>31.137703997206763,121.31957598030567</coordinate> 
+  </station>
+- <station>
+  <id>78</id> 
+  <name_en>Sijing</name_en> 
+  <name_cn>泗泾</name_cn> 
+  <metro>9,</metro> 
+  <coordinate>31.118240141201067,121.25773295760155</coordinate> 
+  </station>
+- <station>
+  <id>79</id> 
+  <name_en>Sheshan</name_en> 
+  <name_cn>佘山</name_cn> 
+  <metro>9,</metro> 
+  <coordinate>31.10525111049015,121.2296649813652</coordinate> 
+  </station>
+- <station>
+  <id>80</id> 
+  <name_en>Shiji Avenue</name_en> 
+  <name_cn>世纪大道</name_cn> 
+  <metro /> 
+  <coordinate>31.229216,121.52632</coordinate> 
+  </station>
+- <station>
+  <id>82</id> 
+  <name_en>Dongjing</name_en> 
+  <name_cn>洞泾</name_cn> 
+  <metro>9,</metro> 
+  <coordinate>31.084680027789886,121.23117104172706</coordinate> 
+  </station>
+- <station>
+  <id>84</id> 
+  <name_en>Xizang Rd S.</name_en> 
+  <name_cn>西藏南路</name_cn> 
+  <metro>4, 8,</metro> 
+  <coordinate>31.201822,121.489552</coordinate> 
+  </station>
+- <station>
+  <id>85</id> 
+  <name_en>Songjiang Xincheng</name_en> 
+  <name_cn>松江新城</name_cn> 
+  <metro>9,</metro> 
+  <coordinate>31.03072493071222,121.23099401593208</coordinate> 
+  </station>
+- <station>
+  <id>86</id> 
+  <name_en>Yaohua Rd</name_en> 
+  <name_cn>耀华路</name_cn> 
+  <metro>7, 8,</metro> 
+  <coordinate>31.178551,121.494713</coordinate> 
+  </station>
+- <station>
+  <id>87</id> 
+  <name_en>Chengshan Rd</name_en> 
+  <name_cn>成山路</name_cn> 
+  <metro>8,</metro> 
+  <coordinate>31.171572,121.495965</coordinate> 
+  </station>
+- <station>
+  <id>88</id> 
+  <name_en>Yangsi Rd</name_en> 
+  <name_cn>杨思路</name_cn> 
+  <metro>8,</metro> 
+  <coordinate>31.160873,121.49397</coordinate> 
+  </station>
+- <station>
+  <id>89</id> 
+  <name_en>Shanghai Science & Technology Museum</name_en> 
+  <name_cn>上海科技馆</name_cn> 
+  <metro>2,</metro> 
+  <coordinate>31.218261,121.541936</coordinate> 
+  </station>
+- <station>
+  <id>91</id> 
+  <name_en>Dongjing Rd</name_en> 
+  <name_cn>东靖路</name_cn> 
+  <metro>6,</metro> 
+  <coordinate>31.290345,121.588834</coordinate> 
+  </station>
+- <station>
+  <id>92</id> 
+  <name_en>Lingzhao Xincun</name_en> 
+  <name_cn>凌兆新村</name_cn> 
+  <metro>8,</metro> 
+  <coordinate>31.141063,121.489745</coordinate> 
+  </station>
+- <station>
+  <id>93</id> 
+  <name_en>Longyang Rd</name_en> 
+  <name_cn>龙阳路</name_cn> 
+  <metro>2, 7,</metro> 
+  <coordinate>31.203288,121.557696</coordinate> 
+  </station>
+- <station>
+  <id>94</id> 
+  <name_en>Xinjiangwancheng</name_en> 
+  <name_cn>新江湾城</name_cn> 
+  <metro>10,</metro> 
+  <coordinate>31.32905804341966,121.50663994252682</coordinate> 
+  </station>
+- <station>
+  <id>95</id> 
+  <name_en>Yingao Rd E.</name_en> 
+  <name_cn>殷高东路</name_cn> 
+  <metro>10,</metro> 
+  <coordinate>31.321456912184246,121.50656316429376</coordinate> 
+  </station>
+- <station>
+  <id>96</id> 
+  <name_en>Luheng Rd</name_en> 
+  <name_cn>芦恒路</name_cn> 
+  <metro>8,</metro> 
+  <coordinate>31.117265,121.49868</coordinate> 
+  </station>
+- <station>
+  <id>97</id> 
+  <name_en>Zhangjiang Hi-Tech Park</name_en> 
+  <name_cn>张江高科</name_cn> 
+  <metro>2,</metro> 
+  <coordinate>31.201907,121.587748</coordinate> 
+  </station>
+- <station>
+  <id>98</id> 
+  <name_en>Sanmen Rd</name_en> 
+  <name_cn>三门路</name_cn> 
+  <metro>10,</metro> 
+  <coordinate>31.312147984182903,121.50854799896478</coordinate> 
+  </station>
+- <station>
+  <id>99</id> 
+  <name_en>Jinke Rd</name_en> 
+  <name_cn>金科路</name_cn> 
+  <metro>2,</metro> 
+  <coordinate>31.204352,121.60199</coordinate> 
+  </station>
+- <station>
+  <id>100</id> 
+  <name_en>Jiangwan Stadium</name_en> 
+  <name_cn>江湾体育场</name_cn> 
+  <metro>10,</metro> 
+  <coordinate>31.303120882547723,121.51401501148939</coordinate> 
+  </station>
+- <station>
+  <id>101</id> 
+  <name_en>Wujiaochang</name_en> 
+  <name_cn>五角场</name_cn> 
+  <metro>10,</metro> 
+  <coordinate>31.29868478771561,121.51496887207031</coordinate> 
+  </station>
+- <station>
+  <id>102</id> 
+  <name_en>Pujiang Town</name_en> 
+  <name_cn>浦江镇</name_cn> 
+  <metro>8,</metro> 
+  <coordinate>31.096319,121.506359</coordinate> 
+  </station>
+- <station>
+  <id>103</id> 
+  <name_en>Guanglan Rd</name_en> 
+  <name_cn>广兰路</name_cn> 
+  <metro>2,</metro> 
+  <coordinate>31.210774,121.619961</coordinate> 
+  </station>
+- <station>
+  <id>104</id> 
+  <name_en>Guoquan Rd</name_en> 
+  <name_cn>国权路</name_cn> 
+  <metro>10,</metro> 
+  <coordinate>31.289664131992925,121.51022806763649</coordinate> 
+  </station>
+- <station>
+  <id>105</id> 
+  <name_en>Tangzhen</name_en> 
+  <name_cn>唐镇</name_cn> 
+  <metro>2,</metro> 
+  <coordinate>31.213279,121.655259</coordinate> 
+  </station>
+- <station>
+  <id>106</id> 
+  <name_en>Chuangxin Rd M.</name_en> 
+  <name_cn>创新中路</name_cn> 
+  <metro>2,</metro> 
+  <coordinate>31.214907,121.664998</coordinate> 
+  </station>
+- <station>
+  <id>107</id> 
+  <name_en>Tongji University</name_en> 
+  <name_cn>同济大学</name_cn> 
+  <metro>10,</metro> 
+  <coordinate>31.281338898967124,121.50590501725673</coordinate> 
+  </station>
+- <station>
+  <id>108</id> 
+  <name_en>Huaxia Rd E.</name_en> 
+  <name_cn>华夏东路</name_cn> 
+  <metro>2,</metro> 
+  <coordinate>31.196561,121.676481</coordinate> 
+  </station>
+- <station>
+  <id>109</id> 
+  <name_en>Chuansha</name_en> 
+  <name_cn>川沙</name_cn> 
+  <metro>2,</metro> 
+  <coordinate>31.186573,121.697938</coordinate> 
+  </station>
+- <station>
+  <id>110</id> 
+  <name_en>Lingkong Rd</name_en> 
+  <name_cn>凌空路</name_cn> 
+  <metro>2,</metro> 
+  <coordinate>31.192475,121.723033</coordinate> 
+  </station>
+- <station>
+  <id>111</id> 
+  <name_en>Jiangyue Rd</name_en> 
+  <name_cn>江月路</name_cn> 
+  <metro>8,</metro> 
+  <coordinate>31.083752,121.508583</coordinate> 
+  </station>
+- <station>
+  <id>112</id> 
+  <name_en>Yuandong Avenue</name_en> 
+  <name_cn>远东大道</name_cn> 
+  <metro>2,</metro> 
+  <coordinate>31.199808,121.756153</coordinate> 
+  </station>
+- <station>
+  <id>113</id> 
+  <name_en>Haitiansan Rd</name_en> 
+  <name_cn>海天三路</name_cn> 
+  <metro>2,</metro> 
+  <coordinate>31.168355,121.797051</coordinate> 
+  </station>
+- <station>
+  <id>114</id> 
+  <name_en>Lianhang Rd</name_en> 
+  <name_cn>联航路</name_cn> 
+  <metro>8,</metro> 
+  <coordinate>31.07437,121.5102</coordinate> 
+  </station>
+- <station>
+  <id>115</id> 
+  <name_en>Pudong International Airport</name_en> 
+  <name_cn>浦东国际机场</name_cn> 
+  <metro>2,</metro> 
+  <coordinate>31.150461,121.805854</coordinate> 
+  </station>
+- <station>
+  <id>116</id> 
+  <name_en>Youdian Xincun</name_en> 
+  <name_cn>邮电新村</name_cn> 
+  <metro>10,</metro> 
+  <coordinate>31.268641044973712,121.49448785930872</coordinate> 
+  </station>
+- <station>
+  <id>117</id> 
+  <name_en>Hailun Rd</name_en> 
+  <name_cn>海伦路</name_cn> 
+  <metro>4, 10,</metro> 
+  <coordinate>31.259589141436027,121.48851189762354</coordinate> 
+  </station>
+- <station>
+  <id>118</id> 
+  <name_en>Aerospace Museum</name_en> 
+  <name_cn>航天博物馆</name_cn> 
+  <metro>8,</metro> 
+  <coordinate>31.061753,121.51267</coordinate> 
+  </station>
+- <station>
+  <id>119</id> 
+  <name_en>Sichuan Rd N.</name_en> 
+  <name_cn>四川北路</name_cn> 
+  <metro>10,</metro> 
+  <coordinate>31.25182791525223,121.48413989692926</coordinate> 
+  </station>
+- <station>
+  <id>120</id> 
+  <name_en>Tiantong Rd</name_en> 
+  <name_cn>天潼路</name_cn> 
+  <metro>10,</metro> 
+  <coordinate>31.24408210338248,121.48245312273502</coordinate> 
+  </station>
+- <station>
+  <id>121</id> 
+  <name_en>Yuyuan Garden</name_en> 
+  <name_cn>豫园</name_cn> 
+  <metro>10,</metro> 
+  <coordinate>31.225173096378455,121.49087693542242</coordinate> 
+  </station>
+- <station>
+  <id>122</id> 
+  <name_en>Xintiandi</name_en> 
+  <name_cn>新天地</name_cn> 
+  <metro>10,</metro> 
+  <coordinate>31.21631401204005,121.47509884089231</coordinate> 
+  </station>
+- <station>
+  <id>124</id> 
+  <name_en>Shanghai Library</name_en> 
+  <name_cn>上海图书馆</name_cn> 
+  <metro>10,</metro> 
+  <coordinate>31.207797922870416,121.44394095987081</coordinate> 
+  </station>
+- <station>
+  <id>125</id> 
+  <name_en>Jiaotong University</name_en> 
+  <name_cn>交通大学</name_cn> 
+  <metro>10,</metro> 
+  <coordinate>31.202000900407586,121.43462061882019</coordinate> 
+  </station>
+- <station>
+  <id>126</id> 
+  <name_en>Hongqiao Rd</name_en> 
+  <name_cn>虹桥路</name_cn> 
+  <metro>4, 3, 10,</metro> 
+  <coordinate>31.196981880361445,121.42083305865526</coordinate> 
+  </station>
+- <station>
+  <id>127</id> 
+  <name_en>Songyuan Rd</name_en> 
+  <name_cn>宋园路</name_cn> 
+  <metro>10,</metro> 
+  <coordinate>31.196609049552805,121.41165185719728</coordinate> 
+  </station>
+- <station>
+  <id>128</id> 
+  <name_en>Yili Rd</name_en> 
+  <name_cn>伊犁路</name_cn> 
+  <metro>10,</metro> 
+  <coordinate>31.19907601503344,121.40331789851188</coordinate> 
+  </station>
+- <station>
+  <id>129</id> 
+  <name_en>Shuicheng Rd</name_en> 
+  <name_cn>水城路</name_cn> 
+  <metro>10,</metro> 
+  <coordinate>31.19945313789424,121.39213006943464</coordinate> 
+  </station>
+- <station>
+  <id>130</id> 
+  <name_en>Longxi Rd</name_en> 
+  <name_cn>龙溪路</name_cn> 
+  <metro>10,</metro> 
+  <coordinate>31.19428312572344,121.3798750564456</coordinate> 
+  </station>
+- <station>
+  <id>131</id> 
+  <name_en>Longbai Xincun</name_en> 
+  <name_cn>龙柏新村</name_cn> 
+  <metro>10,</metro> 
+  <coordinate>31.17738304213042,121.3703290745616</coordinate> 
+  </station>
+- <station>
+  <id>132</id> 
+  <name_en>Ziteng Rd</name_en> 
+  <name_cn>紫藤路</name_cn> 
+  <metro>10,</metro> 
+  <coordinate>31.16975792870655,121.3643279671669</coordinate> 
+  </station>
+- <station>
+  <id>133</id> 
+  <name_en>Hangzhong Rd</name_en> 
+  <name_cn>航中路</name_cn> 
+  <metro>10,</metro> 
+  <coordinate>31.165627988338848,121.35451812297106</coordinate> 
+  </station>
+- <station>
+  <id>134</id> 
+  <name_en>Shanghai Zoo</name_en> 
+  <name_cn>上海动物园</name_cn> 
+  <metro>10,</metro> 
+  <coordinate>31.190235423075,121.36694312095642</coordinate> 
+  </station>
+- <station>
+  <id>135</id> 
+  <name_en>Hongqiao Airport Terminal 1</name_en> 
+  <name_cn>虹桥1号航站楼</name_cn> 
+  <metro>10,</metro> 
+  <coordinate>31.19117788528138,121.34839095175266</coordinate> 
+  </station>
+- <station>
+  <id>137</id> 
+  <name_en>Longde Rd</name_en> 
+  <name_cn>隆德路</name_cn> 
+  <metro>11,</metro> 
+  <coordinate>31.231105448955606,121.4228081703186</coordinate> 
+  </station>
+- <station>
+  <id>138</id> 
+  <name_en>Caoyang Rd</name_en> 
+  <name_cn>曹杨路</name_cn> 
+  <metro>3, 4, 11,</metro> 
+  <coordinate>31.239763916538503,121.4183359220624</coordinate> 
+  </station>
+- <station>
+  <id>139</id> 
+  <name_en>Fengqiao Rd</name_en> 
+  <name_cn>枫桥路</name_cn> 
+  <metro>11,</metro> 
+  <coordinate>31.24213200667288,121.41106009483337</coordinate> 
+  </station>
+- <station>
+  <id>140</id> 
+  <name_en>Zhenru</name_en> 
+  <name_cn>真如</name_cn> 
+  <metro>11,</metro> 
+  <coordinate>31.25110274870842,121.40720844268799</coordinate> 
+  </station>
+- <station>
+  <id>141</id> 
+  <name_en>Shanghai West Railway Station</name_en> 
+  <name_cn>上海西站</name_cn> 
+  <metro>11,</metro> 
+  <coordinate>31.262406974434743,121.40355594456196</coordinate> 
+  </station>
+- <station>
+  <id>142</id> 
+  <name_en>Liziyuan</name_en> 
+  <name_cn>李子园</name_cn> 
+  <metro>11,</metro> 
+  <coordinate>31.26905600457025,121.38968992978334</coordinate> 
+  </station>
+- <station>
+  <id>143</id> 
+  <name_en>Qilianshan Rd</name_en> 
+  <name_cn>祁连山路</name_cn> 
+  <metro>11,</metro> 
+  <coordinate>31.27158612963689,121.37685891240835</coordinate> 
+  </station>
+- <station>
+  <id>144</id> 
+  <name_en>Wuwei Rd</name_en> 
+  <name_cn>武威路</name_cn> 
+  <metro>11,</metro> 
+  <coordinate>31.27660090119656,121.36525701731443</coordinate> 
+  </station>
+- <station>
+  <id>145</id> 
+  <name_en>Taopu Xincun</name_en> 
+  <name_cn>桃浦新村</name_cn> 
+  <metro>11,</metro> 
+  <coordinate>31.281662971036542,121.34977597743273</coordinate> 
+  </station>
+- <station>
+  <id>146</id> 
+  <name_en>Nanxiang</name_en> 
+  <name_cn>南翔</name_cn> 
+  <metro>11,</metro> 
+  <coordinate>31.297115130750875,121.32457494735718</coordinate> 
+  </station>
+- <station>
+  <id>147</id> 
+  <name_en>Malu</name_en> 
+  <name_cn>马陆</name_cn> 
+  <metro>11,</metro> 
+  <coordinate>31.319429935680222,121.269656047225</coordinate> 
+  </station>
+- <station>
+  <id>148</id> 
+  <name_en>Jiading Xincheng</name_en> 
+  <name_cn>嘉定新城</name_cn> 
+  <metro>11,</metro> 
+  <coordinate>31.32959502552338,121.25469099730253</coordinate> 
+  </station>
+- <station>
+  <id>149</id> 
+  <name_en>Baiyin Rd</name_en> 
+  <name_cn>白银路</name_cn> 
+  <metro>11,</metro> 
+  <coordinate>31.34468397222603,121.24572303146124</coordinate> 
+  </station>
+- <station>
+  <id>150</id> 
+  <name_en>West Jiading</name_en> 
+  <name_cn>嘉定西</name_cn> 
+  <metro>11,</metro> 
+  <coordinate>31.37478304226597,121.22860785573721</coordinate> 
+  </station>
+- <station>
+  <id>151</id> 
+  <name_en>North Jiading</name_en> 
+  <name_cn>嘉定北</name_cn> 
+  <metro>11,</metro> 
+  <coordinate>31.39163004140315,121.23728513717651</coordinate> 
+  </station>
+- <station>
+  <id>152</id> 
+  <name_en>Shanghai Circuit</name_en> 
+  <name_cn>上海赛车场</name_cn> 
+  <metro>11,</metro> 
+  <coordinate>31.33174492798513,121.22544888406992</coordinate> 
+  </station>
+- <station>
+  <id>154</id> 
+  <name_en>Shanghai Automobile City</name_en> 
+  <name_cn>上海汽车城</name_cn> 
+  <metro>11,</metro> 
+  <coordinate>31.285670942727517,121.18056915700435</coordinate> 
+  </station>
+- <station>
+  <id>155</id> 
+  <name_en>Anting</name_en> 
+  <name_cn>安亭</name_cn> 
+  <metro>11,</metro> 
+  <coordinate>31.28834989658152,121.16234086453914</coordinate> 
+  </station>
+- <station>
+  <id>156</id> 
+  <name_en>Meilan Lake</name_en> 
+  <name_cn>美兰湖</name_cn> 
+  <metro>7,</metro> 
+  <coordinate>31.39529705962462,121.35472297668457</coordinate> 
+  </station>
+- <station>
+  <id>157</id> 
+  <name_en>Luonan Xincun</name_en> 
+  <name_cn>罗南新村</name_cn> 
+  <metro>7,</metro> 
+  <coordinate>31.387504081172242,121.35783299803734</coordinate> 
+  </station>
+- <station>
+  <id>158</id> 
+  <name_en>Panguang Rd</name_en> 
+  <name_cn>潘广路</name_cn> 
+  <metro /> 
+  <coordinate>31.360587016760774,121.35287694633007</coordinate> 
+  </station>
+- <station>
+  <id>159</id> 
+  <name_en>Gangcheng Rd</name_en> 
+  <name_cn>港城路</name_cn> 
+  <metro>6,</metro> 
+  <coordinate>31.353545,121.575029</coordinate> 
+  </station>
+- <station>
+  <id>160</id> 
+  <name_en>Jiangyang Rd N.</name_en> 
+  <name_cn>江杨北路</name_cn> 
+  <metro>3,</metro> 
+  <coordinate>31.407222,121.439261</coordinate> 
+  </station>
+- <station>
+  <id>162</id> 
+  <name_en>Gucun Park</name_en> 
+  <name_cn>顾村公园</name_cn> 
+  <metro>7,</metro> 
+  <coordinate>31.344852914868092,121.36118408292532</coordinate> 
+  </station>
+- <station>
+  <id>163</id> 
+  <name_en>North Waigaoqiao Free Trade Zone</name_en> 
+  <name_cn>外高桥保税区北</name_cn> 
+  <metro>6,</metro> 
+  <coordinate>31.34884,121.586616</coordinate> 
+  </station>
+- <station>
+  <id>164</id> 
+  <name_en>Qihua Rd</name_en> 
+  <name_cn>祁华路</name_cn> 
+  <metro /> 
+  <coordinate>31.319293026551793,121.38171404600143</coordinate> 
+  </station>
+- <station>
+  <id>165</id> 
+  <name_en>Shanghai University</name_en> 
+  <name_cn>上海大学</name_cn> 
+  <metro>7,</metro> 
+  <coordinate>31.320821642908978,121.39011740684509</coordinate> 
+  </station>
+- <station>
+  <id>166</id> 
+  <name_en>Hangjin Rd</name_en> 
+  <name_cn>航津路</name_cn> 
+  <metro>6,</metro> 
+  <coordinate>31.333029,121.595383</coordinate> 
+  </station>
+- <station>
+  <id>167</id> 
+  <name_en>Nanchen Rd</name_en> 
+  <name_cn>南陈路</name_cn> 
+  <metro>7,</metro> 
+  <coordinate>31.321324015810312,121.39720816165209</coordinate> 
+  </station>
+- <station>
+  <id>168</id> 
+  <name_en>Shangda Rd</name_en> 
+  <name_cn>上大路</name_cn> 
+  <metro>7,</metro> 
+  <coordinate>31.313674997892374,121.40928011387586</coordinate> 
+  </station>
+- <station>
+  <id>169</id> 
+  <name_en>South Waigaoqiao Free Trade Zone</name_en> 
+  <name_cn>外高桥保税区南</name_cn> 
+  <metro>6,</metro> 
+  <coordinate>31.321152,121.602251</coordinate> 
+  </station>
+- <station>
+  <id>170</id> 
+  <name_en>Changzhong Rd</name_en> 
+  <name_cn>场中路</name_cn> 
+  <metro>7,</metro> 
+  <coordinate>31.30266797213776,121.41380399465561</coordinate> 
+  </station>
+- <station>
+  <id>171</id> 
+  <name_en>Dachang Town</name_en> 
+  <name_cn>大场镇</name_cn> 
+  <metro>7,</metro> 
+  <coordinate>31.290517071572143,121.4183721318841</coordinate> 
+  </station>
+- <station>
+  <id>172</id> 
+  <name_en>Zhouhai Rd</name_en> 
+  <name_cn>洲海路</name_cn> 
+  <metro>6,</metro> 
+  <coordinate>31.312918,121.589316</coordinate> 
+  </station>
+- <station>
+  <id>173</id> 
+  <name_en>Xingzhi Rd</name_en> 
+  <name_cn>行知路</name_cn> 
+  <metro>7,</metro> 
+  <coordinate>31.28467211756441,121.42183687537908</coordinate> 
+  </station>
+- <station>
+  <id>174</id> 
+  <name_en>Dahuasan Rd</name_en> 
+  <name_cn>大华三路</name_cn> 
+  <metro>7,</metro> 
+  <coordinate>31.27366113116194,121.42308611422777</coordinate> 
+  </station>
+- <station>
+  <id>175</id> 
+  <name_en>Wuzhou Avenue</name_en> 
+  <name_cn>五洲大道</name_cn> 
+  <metro>6,</metro> 
+  <coordinate>31.303099,121.589362</coordinate> 
+  </station>
+- <station>
+  <id>176</id> 
+  <name_en>Xincun Rd</name_en> 
+  <name_cn>新村路</name_cn> 
+  <metro>7,</metro> 
+  <coordinate>31.26477392352673, 121.4228879660368</coordinate> 
+  </station>
+- <station>
+  <id>177</id> 
+  <name_en>Langao Rd</name_en> 
+  <name_cn>岚皋路</name_cn> 
+  <metro>7,</metro> 
+  <coordinate>31.256009122627848,121.42175707966089</coordinate> 
+  </station>
+- <station>
+  <id>179</id> 
+  <name_en>Zhenping Rd</name_en> 
+  <name_cn>镇坪路</name_cn> 
+  <metro>3, 4, 7,</metro> 
+  <coordinate>31.246442919190677,121.43005315214395</coordinate> 
+  </station>
+- <station>
+  <id>180</id> 
+  <name_en>Jufeng Rd</name_en> 
+  <name_cn>巨峰路</name_cn> 
+  <metro>6,</metro> 
+  <coordinate>31.280643,121.588374</coordinate> 
+  </station>
+- <station>
+  <id>181</id> 
+  <name_en>Wulian Rd</name_en> 
+  <name_cn>五莲路</name_cn> 
+  <metro>6,</metro> 
+  <coordinate>31.2705,121.587882</coordinate> 
+  </station>
+- <station>
+  <id>182</id> 
+  <name_en>Changshou Rd</name_en> 
+  <name_cn>长寿路</name_cn> 
+  <metro>7,</metro> 
+  <coordinate>31.240269874689748,121.43791437149048</coordinate> 
+  </station>
+- <station>
+  <id>183</id> 
+  <name_en>Boxing Rd</name_en> 
+  <name_cn>博兴路</name_cn> 
+  <metro>6,</metro> 
+  <coordinate>31.264154,121.586981</coordinate> 
+  </station>
+- <station>
+  <id>184</id> 
+  <name_en>Changping Rd</name_en> 
+  <name_cn>昌平路</name_cn> 
+  <metro>7,</metro> 
+  <coordinate>31.23435300481429,121.4422059059143</coordinate> 
+  </station>
+- <station>
+  <id>185</id> 
+  <name_en>Jinqiao Rd</name_en> 
+  <name_cn>金桥路</name_cn> 
+  <metro>6,</metro> 
+  <coordinate>31.256743,121.581488</coordinate> 
+  </station>
+- <station>
+  <id>186</id> 
+  <name_en>Tieli Rd</name_en> 
+  <name_cn>铁力路</name_cn> 
+  <metro>3,</metro> 
+  <coordinate>31.408362,121.461976</coordinate> 
+  </station>
+- <station>
+  <id>187</id> 
+  <name_en>Dong'an Rd</name_en> 
+  <name_cn>东安路</name_cn> 
+  <metro /> 
+  <coordinate>31.190862967426305,121.45471706986427</coordinate> 
+  </station>
+- <station>
+  <id>188</id> 
+  <name_en>Youyi Rd</name_en> 
+  <name_cn>友谊路</name_cn> 
+  <metro>3,</metro> 
+  <coordinate>31.403539,121.476645</coordinate> 
+  </station>
+- <station>
+  <id>189</id> 
+  <name_en>Chuanchang Rd</name_en> 
+  <name_cn>船厂路</name_cn> 
+  <metro>7,</metro> 
+  <coordinate>31.18435213583933, 121.46075706928968</coordinate> 
+  </station>
+- <station>
+  <id>190</id> 
+  <name_en>Baoyang Rd</name_en> 
+  <name_cn>宝杨路</name_cn> 
+  <metro>3,</metro> 
+  <coordinate>31.396396,121.479564</coordinate> 
+  </station>
+- <station>
+  <id>191</id> 
+  <name_en>Houtan</name_en> 
+  <name_cn>后滩</name_cn> 
+  <metro>7,</metro> 
+  <coordinate>31.173490957560034,121.47117208689451</coordinate> 
+  </station>
+- <station>
+  <id>192</id> 
+  <name_en>Changqing Rd</name_en> 
+  <name_cn>长清路</name_cn> 
+  <metro>7,</metro> 
+  <coordinate>31.17484609124174,121.4864831417799</coordinate> 
+  </station>
+- <station>
+  <id>193</id> 
+  <name_en>Yuntai Rd</name_en> 
+  <name_cn>云台路</name_cn> 
+  <metro>7,</metro> 
+  <coordinate>31.182362083947353,121.50043498724699</coordinate> 
+  </station>
+- <station>
+  <id>194</id> 
+  <name_en>Gaoke Rd W.</name_en> 
+  <name_cn>高科西路</name_cn> 
+  <metro>6, 7,</metro> 
+  <coordinate>31.185811518882452,121.50977611541748</coordinate> 
+  </station>
+- <station>
+  <id>195</id> 
+  <name_en>Yanggao Rd S.</name_en> 
+  <name_cn>杨高南路</name_cn> 
+  <metro>7,</metro> 
+  <coordinate>31.18768504919252,121.52380105108022</coordinate> 
+  </station>
+- <station>
+  <id>196</id> 
+  <name_en>Jinxiu Rd</name_en> 
+  <name_cn>锦绣路</name_cn> 
+  <metro>7,</metro> 
+  <coordinate>31.187594127037584,121.54018498957157</coordinate> 
+  </station>
+- <station>
+  <id>197</id> 
+  <name_en>Songbin Rd</name_en> 
+  <name_cn>淞滨路</name_cn> 
+  <metro>3,</metro> 
+  <coordinate>31.37141,121.493125</coordinate> 
+  </station>
+- <station>
+  <id>198</id> 
+  <name_en>Fanghua Rd</name_en> 
+  <name_cn>芳华路</name_cn> 
+  <metro>7,</metro> 
+  <coordinate>31.193053030193187,121.55003305524587</coordinate> 
+  </station>
+- <station>
+  <id>199</id> 
+  <name_en>Zhanghuabang</name_en> 
+  <name_cn>张华浜</name_cn> 
+  <metro>3,</metro> 
+  <coordinate>31.362762,121.497159</coordinate> 
+  </station>
+- <station>
+  <id>200</id> 
+  <name_en>Songfa Rd</name_en> 
+  <name_cn>淞发路</name_cn> 
+  <metro>3,</metro> 
+  <coordinate>31.344658,121.500592</coordinate> 
+  </station>
+- <station>
+  <id>201</id> 
+  <name_en>Changjiang Rd S.</name_en> 
+  <name_cn>长江南路</name_cn> 
+  <metro>3,</metro> 
+  <coordinate>31.331609,121.491666</coordinate> 
+  </station>
+- <station>
+  <id>202</id> 
+  <name_en>Yingao Rd W.</name_en> 
+  <name_cn>殷高西路</name_cn> 
+  <metro>3,</metro> 
+  <coordinate>31.320272,121.485322</coordinate> 
+  </station>
+- <station>
+  <id>203</id> 
+  <name_en>Jiangwan Town</name_en> 
+  <name_cn>江湾镇</name_cn> 
+  <metro>3,</metro> 
+  <coordinate>31.305205,121.485076</coordinate> 
+  </station>
+- <station>
+  <id>204</id> 
+  <name_en>Huamu Rd</name_en> 
+  <name_cn>花木路</name_cn> 
+  <metro>7,</metro> 
+  <coordinate>31.211435111383906,121.56280104070902</coordinate> 
+  </station>
+- <station>
+  <id>205</id> 
+  <name_en>Shuichan Rd</name_en> 
+  <name_cn>水产路</name_cn> 
+  <metro>3,</metro> 
+  <coordinate>31.381793,121.488321</coordinate> 
+  </station>
+- <station>
+  <id>206</id> 
+  <name_en>Dabaishu</name_en> 
+  <name_cn>大柏树</name_cn> 
+  <metro>3,</metro> 
+  <coordinate>31.290296,121.483362</coordinate> 
+  </station>
+- <station>
+  <id>207</id> 
+  <name_en>Chunshen Rd</name_en> 
+  <name_cn>春申路</name_cn> 
+  <metro>5,</metro> 
+  <coordinate>31.09869506573095,121.38537392020225</coordinate> 
+  </station>
+- <station>
+  <id>208</id> 
+  <name_en>Yindu Rd</name_en> 
+  <name_cn>银都路</name_cn> 
+  <metro>5,</metro> 
+  <coordinate>31.086256944789625,121.39213509857654</coordinate> 
+  </station>
+- <station>
+  <id>209</id> 
+  <name_en>Zhuanqiao</name_en> 
+  <name_cn>颛桥</name_cn> 
+  <metro>5,</metro> 
+  <coordinate>31.066756694346203,121.40192985534668</coordinate> 
+  </station>
+- <station>
+  <id>210</id> 
+  <name_en>Chifeng Rd</name_en> 
+  <name_cn>赤峰路</name_cn> 
+  <metro>3,</metro> 
+  <coordinate>31.281888,121.482439</coordinate> 
+  </station>
+- <station>
+  <id>211</id> 
+  <name_en>Beiqiao</name_en> 
+  <name_cn>北桥</name_cn> 
+  <metro>5,</metro> 
+  <coordinate>31.044865119773355,121.41010992228985</coordinate> 
+  </station>
+- <station>
+  <id>213</id> 
+  <name_en>Jianchuan Rd</name_en> 
+  <name_cn>剑川路</name_cn> 
+  <metro>5,</metro> 
+  <coordinate>31.026226070626496,121.41651403158903</coordinate> 
+  </station>
+- <station>
+  <id>214</id> 
+  <name_en>Dongchuan Rd</name_en> 
+  <name_cn>东川路</name_cn> 
+  <metro>5,</metro> 
+  <coordinate>31.01749493493763,121.42009813338518</coordinate> 
+  </station>
+- <station>
+  <id>215</id> 
+  <name_en>Dongbaoxing Rd</name_en> 
+  <name_cn>东宝兴路</name_cn> 
+  <metro>3,</metro> 
+  <coordinate>31.260114,121.479942</coordinate> 
+  </station>
+- <station>
+  <id>216</id> 
+  <name_en>Jinping Rd</name_en> 
+  <name_cn>金平路</name_cn> 
+  <metro>5,</metro> 
+  <coordinate>31.01113801088381,121.41019809991121</coordinate> 
+  </station>
+- <station>
+  <id>217</id> 
+  <name_en>Huaning Rd</name_en> 
+  <name_cn>华宁路</name_cn> 
+  <metro>5,</metro> 
+  <coordinate>31.006775012835497,121.39285694807768</coordinate> 
+  </station>
+- <station>
+  <id>218</id> 
+  <name_en>Baoshan Rd</name_en> 
+  <name_cn>宝山路</name_cn> 
+  <metro>3, 4,</metro> 
+  <coordinate>31.251479,121.476517</coordinate> 
+  </station>
+- <station>
+  <id>219</id> 
+  <name_en>Wenjing Rd</name_en> 
+  <name_cn>文井路</name_cn> 
+  <metro>5,</metro> 
+  <coordinate>31.00349034787644,121.38060092926025</coordinate> 
+  </station>
+- <station>
+  <id>220</id> 
+  <name_en>Minhang Development Zone</name_en> 
+  <name_cn>闵行开发区</name_cn> 
+  <metro>5,</metro> 
+  <coordinate>30.999518137301017,121.36598691344261</coordinate> 
+  </station>
+- <station>
+  <id>221</id> 
+  <name_en>Zhongtan Rd</name_en> 
+  <name_cn>中潭路</name_cn> 
+  <metro>3, 4,</metro> 
+  <coordinate>31.254716,121.441637</coordinate> 
+  </station>
+- <station>
+  <id>223</id> 
+  <name_en>Jinshajiang Rd</name_en> 
+  <name_cn>金沙江路</name_cn> 
+  <metro>3, 4,</metro> 
+  <coordinate>31.231709,121.413091</coordinate> 
+  </station>
+- <station>
+  <id>224</id> 
+  <name_en>Yan'an Rd W.</name_en> 
+  <name_cn>延安西路</name_cn> 
+  <metro>4, 3,</metro> 
+  <coordinate>31.210023,121.417151</coordinate> 
+  </station>
+- <station>
+  <id>225</id> 
+  <name_en>Yunshan Rd</name_en> 
+  <name_cn>云山路</name_cn> 
+  <metro>6,</metro> 
+  <coordinate>31.25102,121.573699</coordinate> 
+  </station>
+- <station>
+  <id>226</id> 
+  <name_en>Caoxi Rd</name_en> 
+  <name_cn>漕溪路</name_cn> 
+  <metro>3,</metro> 
+  <coordinate>31.17664,121.438057</coordinate> 
+  </station>
+- <station>
+  <id>227</id> 
+  <name_en>Longcao Rd</name_en> 
+  <name_cn>龙漕路</name_cn> 
+  <metro>3,</metro> 
+  <coordinate>31.169863,121.444352</coordinate> 
+  </station>
+- <station>
+  <id>228</id> 
+  <name_en>Deping Rd</name_en> 
+  <name_cn>德平路</name_cn> 
+  <metro>6,</metro> 
+  <coordinate>31.24537,121.564171</coordinate> 
+  </station>
+- <station>
+  <id>229</id> 
+  <name_en>Shilong Rd</name_en> 
+  <name_cn>石龙路</name_cn> 
+  <metro>3,</metro> 
+  <coordinate>31.156739,121.441128</coordinate> 
+  </station>
+- <station>
+  <id>230</id> 
+  <name_en>Shanghai Stadium</name_en> 
+  <name_cn>上海体育场</name_cn> 
+  <metro>4,</metro> 
+  <coordinate>31.185527,121.443472</coordinate> 
+  </station>
+- <station>
+  <id>231</id> 
+  <name_en>Damuqiao Rd</name_en> 
+  <name_cn>大木桥路</name_cn> 
+  <metro>4,</metro> 
+  <coordinate>31.194237,121.463567</coordinate> 
+  </station>
+- <station>
+  <id>232</id> 
+  <name_en>Luban Rd</name_en> 
+  <name_cn>鲁班路</name_cn> 
+  <metro>4,</metro> 
+  <coordinate>31.199037,121.47347</coordinate> 
+  </station>
+- <station>
+  <id>233</id> 
+  <name_en>Nanpu Bridge</name_en> 
+  <name_cn>南浦大桥</name_cn> 
+  <metro>4,</metro> 
+  <coordinate>31.208441,121.499348</coordinate> 
+  </station>
+- <station>
+  <id>234</id> 
+  <name_en>Tangqiao</name_en> 
+  <name_cn>塘桥</name_cn> 
+  <metro>4,</metro> 
+  <coordinate>31.209351,121.519518</coordinate> 
+  </station>
+- <station>
+  <id>235</id> 
+  <name_en>Lancun Rd</name_en> 
+  <name_cn>蓝村路</name_cn> 
+  <metro>4, 6,</metro> 
+  <coordinate>31.211902,121.528278</coordinate> 
+  </station>
+- <station>
+  <id>236</id> 
+  <name_en>Beiyangjing Rd</name_en> 
+  <name_cn>北洋泾路</name_cn> 
+  <metro>6,</metro> 
+  <coordinate>31.239151,121.552241</coordinate> 
+  </station>
+- <station>
+  <id>237</id> 
+  <name_en>Minsheng Rd</name_en> 
+  <name_cn>民生路</name_cn> 
+  <metro>6,</metro> 
+  <coordinate>31.235665,121.542864</coordinate> 
+  </station>
+- <station>
+  <id>238</id> 
+  <name_en>Yuanshen Stadium</name_en> 
+  <name_cn>源深体育中心</name_cn> 
+  <metro>6,</metro> 
+  <coordinate>31.232931,121.534367</coordinate> 
+  </station>
+- <station>
+  <id>239</id> 
+  <name_en>Pudian Rd (Line 4)</name_en> 
+  <name_cn>浦电路 (4号线)</name_cn> 
+  <metro>4,</metro> 
+  <coordinate>31.222917,121.531974</coordinate> 
+  </station>
+- <station>
+  <id>240</id> 
+  <name_en>Pudian Rd (Line 6)</name_en> 
+  <name_cn>浦电路(6号线)</name_cn> 
+  <metro>6,</metro> 
+  <coordinate>31.232922,121.534399</coordinate> 
+  </station>
+- <station>
+  <id>241</id> 
+  <name_en>Pudong Avenue</name_en> 
+  <name_cn>浦东大道</name_cn> 
+  <metro>4,</metro> 
+  <coordinate>31.24032,121.519842</coordinate> 
+  </station>
+- <station>
+  <id>242</id> 
+  <name_en>Yangshupu Rd</name_en> 
+  <name_cn>杨树浦路</name_cn> 
+  <metro>4,</metro> 
+  <coordinate>31.252419,121.5172</coordinate> 
+  </station>
+- <station>
+  <id>243</id> 
+  <name_en>Dalian Rd</name_en> 
+  <name_cn>大连路</name_cn> 
+  <metro>4,</metro> 
+  <coordinate>31.258211,121.512815</coordinate> 
+  </station>
+- <station>
+  <id>244</id> 
+  <name_en>Linping Rd</name_en> 
+  <name_cn>临平路</name_cn> 
+  <metro>4,</metro> 
+  <coordinate>31.260907,121.500936</coordinate> 
+  </station>
+- <station>
+  <id>245</id> 
+  <name_en>Shanghai Children's Medical Center</name_en> 
+  <name_cn>上海儿童医学中心</name_cn> 
+  <metro>6,</metro> 
+  <coordinate>31.204327,121.523876</coordinate> 
+  </station>
+- <station>
+  <id>246</id> 
+  <name_en>Linyi Xincun</name_en> 
+  <name_cn>临沂新村</name_cn> 
+  <metro>6,</metro> 
+  <coordinate>31.193332,121.516915</coordinate> 
+  </station>
+- <station>
+  <id>247</id> 
+  <name_en>Dongming Rd</name_en> 
+  <name_cn>东明路</name_cn> 
+  <metro>6,</metro> 
+  <coordinate>31.172728,121.510709</coordinate> 
+  </station>
+- <station>
+  <id>248</id> 
+  <name_en>Gaoqing Rd</name_en> 
+  <name_cn>高青路</name_cn> 
+  <metro>6,</metro> 
+  <coordinate>31.159629,121.515997</coordinate> 
+  </station>
+- <station>
+  <id>249</id> 
+  <name_en>Huaxia Rd W.</name_en> 
+  <name_cn>华夏西路</name_cn> 
+  <metro>6,</metro> 
+  <coordinate>31.150758,121.514064</coordinate> 
+  </station>
+- <station>
+  <id>250</id> 
+  <name_en>Shangnan Rd</name_en> 
+  <name_cn>上南路</name_cn> 
+  <metro>6,</metro> 
+  <coordinate>31.148494,121.507094</coordinate> 
+  </station>
+- <station>
+  <id>251</id> 
+  <name_en>Lingyan Rd S.</name_en> 
+  <name_cn>灵岩南路</name_cn> 
+  <metro>6,</metro> 
+  <coordinate>31.149485,121.494992</coordinate> 
+  </station>
+- <station>
+  <id>253</id> 
+  <name_en>Century Park</name_en> 
+  <name_cn>世纪公园</name_cn> 
+  <metro>2,</metro> 
+  <coordinate>31.209971,121.550766</coordinate> 
+  </station>
+- <station>
+  <id>254</id> 
+  <name_en>Dong'an Rd</name_en> 
+  <name_cn>东安路</name_cn> 
+  <metro>4, 7,</metro> 
+  <coordinate>31.190862,121.454718</coordinate> 
+  </station>
+- <station>
+  <id>255</id> 
+  <name_en>Songjiang University Town</name_en> 
+  <name_cn>松江大学城</name_cn> 
+  <metro>9,</metro> 
+  <coordinate>31.050632,121.232795</coordinate> 
+  </station>
+  </stations>

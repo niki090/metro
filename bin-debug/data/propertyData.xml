@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<classified>
+	<property>
+		<id>300</id>
+		<title>Brand new 3br apt in Territory close to West Nanjing Rd</title>
+		<type>House For Rent</type>
+		<location>Zhongshan Park</location>
+		<price>1,5000 yuan/month</price>
+		<layout>4 bedrooms,2 living rooms,3 bathrooms</layout>
+		<image>http://live.shanghaidaily.com/venues_image/2010/2010-11/2010-11-24/20101124_3912_01.jpg</image>
+		<link>http://www.shanghaidaily.com</link>
+		<stations>
+			<station>117</station>
+			<station></station>
+		</stations>
+		<coordinate>31.232803,121.475315</coordinate>
+		<description>FIFA sent the World Cup into uncharted territory last night, handing the 2018 finals to Russia and opting for Qatar in 2022. Russia's Prime Minist...</description>
+	</property>
+	<property>
+		<id>300</id>
+		<title>Comfortable 2br apt in First Block near People's square</title>
+		<type>House For Rent</type>
+		<location>People's square</location>
+		<price>2,5000 yuan/month</price>
+		<layout>4 bedrooms,2 living rooms,3 bathrooms</layout>
+		<image>http://live.shanghaidaily.com/venues_image/2010/2010-11/2010-11-24/20101124_3912_01.jpg</image>
+		<link>http://www.shanghaidaily.com</link>
+		<stations>
+			<station>117</station>
+			<station>118</station>
+		</stations>
+		<coordinate>31.232803,121.475315</coordinate>
+		<description>FIFA sent the World Cup into uncharted territory last night, handing the 2018 finals to Russia and opting for Qatar in 2022. Russia's Prime Minist...</description>
+	</property>
+</classified>

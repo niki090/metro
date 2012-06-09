@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:ATE="http://ns.adobe.com/ate/2009" 
+		 xmlns:ai="http://ns.adobe.com/ai/2009" 
+		 xmlns:fc="http://ns.adobe.com/flashcatalyst/2009" 
+		 xmlns:d="http://ns.adobe.com/fxg/2008/dt" 
+		 xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:lib="assets.graphics.metro_map_color_original.*" 
+		 xmlns:flm="http://ns.adobe.com/flame/2008">
+	<fx:DesignLayer d:id="24" d:userLabel="line6">
+		<s:Path data="M 2.64 860.994 L 112.221 860.782 L 112.221 697.015 L 177.747 631.489 L 177.747 546.359 L 326.249 397.857 L 326.249 30.628 L 298.259 2.64" d:userLabel="6" winding="nonZero" x="1314.21" y="454.762">
+			<s:stroke>
+				<s:SolidColorStroke color="#F53766" miterLimit="4" weight="5.28"/>
+			</s:stroke>
+		</s:Path>
+		<s:Line d:userLabel="6 b" x="1255.5" xFrom="61" y="1315.5">
+			<s:stroke>
+				<s:SolidColorStroke color="#B4B4B5" miterLimit="4" weight="5"/>
+			</s:stroke>
+		</s:Line>
+		<s:Group d:userLabel="6" x="1379" y="1329">
+			<s:Rect height="17" radiusX="2.24741" radiusY="2.24741" width="50" x="0" y="0">
+				<s:fill>
+					<s:SolidColor color="#F53766"/>
+				</s:fill>
+			</s:Rect>
+			<s:RichText ai:aa="2" color="#FFFFFF" columnCount="1" fontFamily="Arial" fontSize="12.32" fontWeight="bold" d:id="25" kerning="off" lineHeight="175%" tabStops="S57.0239906311035" text="Line 6" textAlign="center" d:userLabel="Line 6" flm:variant="14" whiteSpaceCollapse="preserve" x="7" y="4"/>
+		</s:Group>
+		<s:Group d:userLabel="6" x="1615" y="425">
+			<s:Rect height="17" radiusX="2.24918" radiusY="2.24918" width="50" x="0" y="0">
+				<s:fill>
+					<s:SolidColor color="#F53766"/>
+				</s:fill>
+			</s:Rect>
+			<s:RichText ai:aa="2" color="#FFFFFF" columnCount="1" fontFamily="Arial" fontSize="12.32" fontWeight="bold" d:id="26" kerning="off" lineHeight="175%" tabStops="S57.0239906311035" text="Line 6" textAlign="center" d:userLabel="Line 6" flm:variant="15" whiteSpaceCollapse="preserve" x="7" y="4"/>
+		</s:Group>
+	</fx:DesignLayer>
+</s:Group>

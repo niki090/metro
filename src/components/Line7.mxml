@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:ATE="http://ns.adobe.com/ate/2009" 
+		 xmlns:ai="http://ns.adobe.com/ai/2009" 
+		 xmlns:fc="http://ns.adobe.com/flashcatalyst/2009" 
+		 xmlns:d="http://ns.adobe.com/fxg/2008/dt" 
+		 xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:lib="assets.graphics.metro_map_color_original.*" 
+		 xmlns:flm="http://ns.adobe.com/flame/2008">
+	<fx:DesignLayer d:id="27" d:userLabel="line7">
+		<s:Line d:userLabel="7 p" x="813.5" y="333.5" yTo="256">
+			<s:stroke>
+				<s:SolidColorStroke color="#EA5109" miterLimit="4" weight="5"/>
+			</s:stroke>
+		</s:Line>
+		<s:Path data="M 2.64 2.64 L 81.321 2.64 L 184.827 105.144 L 184.827 194.721 L 238.885 248.776 L 238.885 358.042 L 321.556 440.716 L 321.556 557.48 L 399.616 635.537 L 534.938 635.537 L 558.382 612.095 L 748.953 612.095 L 860.686 500.355 L 860.686 463.737" d:userLabel="7" winding="nonZero" x="812.622" y="586.625">
+			<s:stroke>
+				<s:SolidColorStroke color="#EA5109" miterLimit="4" weight="5.28"/>
+			</s:stroke>
+		</s:Path>
+		<s:Group d:userLabel="7" x="1680" y="1019">
+			<s:Rect height="17" radiusX="2.25095" radiusY="2.25095" width="50" x="0" y="0">
+				<s:fill>
+					<s:SolidColor color="#EA5109"/>
+				</s:fill>
+			</s:Rect>
+			<s:RichText ai:aa="2" color="#FFFFFF" columnCount="1" fontFamily="Arial" fontSize="12.32" fontWeight="bold" d:id="28" kerning="off" lineHeight="175%" tabStops="S57.0239906311035" text="Line 7" textAlign="center" d:userLabel="Line 7" flm:variant="16" whiteSpaceCollapse="preserve" x="7" y="4"/>
+		</s:Group>
+		<s:Group d:userLabel="7 p" x="833" y="330">
+			<s:Rect height="17" radiusX="2.24476" radiusY="2.24476" width="50" x="0" y="0">
+				<s:fill>
+					<s:SolidColor color="#EA5109"/>
+				</s:fill>
+			</s:Rect>
+			<s:RichText ai:aa="2" color="#FFFFFF" columnCount="1" fontFamily="Arial" fontSize="12.32" fontWeight="bold" d:id="29" kerning="off" lineHeight="175%" tabStops="S57.0239906311035" text="Line 7" textAlign="center" d:userLabel="Line 7" flm:variant="17" whiteSpaceCollapse="preserve" x="7" y="4"/>
+		</s:Group>
+	</fx:DesignLayer>
+</s:Group>

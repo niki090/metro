@@ -1,0 +1,886 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:SkinnableContainer xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx"
+		 xmlns:components="components.*"
+		 fontSize="10" fontFamily.label_cn="宋体"
+		 width="4096" height="3072"
+		 creationComplete="initApp()">
+	<fx:Metadata>
+		[Event(name="showMap",type="eventObjects.ShowMap")]
+	</fx:Metadata>
+
+	<fx:Script>
+		<![CDATA[
+			import eventObjects.ShowMap;
+			import flash.filters.*;
+			
+			import mx.collections.ArrayCollection;
+			import mx.collections.Sort;
+			import mx.collections.SortField;
+			import mx.controls.Alert;
+			import mx.rpc.events.ResultEvent;
+			import mx.utils.ArrayUtil;
+			
+			import valueObjects.Station;
+			[Bindable]
+			public var loading:Boolean=true;
+			[Bindable]
+			public var stationData:ArrayCollection=new ArrayCollection();
+			
+			private function initApp():void
+			{
+				canvasLayer.addEventListener(MouseEvent.MOUSE_DOWN,onMouseDown);
+			}
+			/* 鼠标点击线路组还原各线路不透明度 */
+		    private function onMouseDown(event:MouseEvent):void
+			{
+				for(var i:Number=1;i<=lineImage.numChildren;i++)
+				{
+					this["line"+i].alpha=1;
+				}
+				maglev.alpha=1.0;
+			}
+			
+			protected function stationSrv_resultHandler(event:ResultEvent):void
+			{
+				stationData=event.result.stations.station;
+				loading=false;
+				var mySort:Sort=new Sort();
+				mySort.fields=new Array();
+				mySort.fields.push(new SortField('name_en'));
+				stationData.sort=mySort;
+				stationData.refresh();
+				/* 为每个站点按钮增加点击侦听事件 */
+				for(var i:Number=0;i<stationBtn.numChildren;i++)
+				{
+					(stationBtn.getElementAt(i) as Button).addEventListener(MouseEvent.CLICK,station_clickHandler);
+				}
+			}
+			protected function station_clickHandler(event:MouseEvent):void
+			{
+				var stnId:String=event.target.id.substr(4);/* 获取点击按钮id */
+				var stationSelected:Station=new Station();/* 创建点击的站点对象 */
+				/* 循环遍历，将所选的站点对象转换为值对象 */
+				for each(var stnObj:Object in stationData)
+				{
+					if(stnObj.id==stnId)
+					{
+						stationSelected.id=stnObj.id;
+						stationSelected.name_en=stnObj.name_en;
+						stationSelected.name_cn=stnObj.name_cn;
+						if(stnObj.metro.indexOf(",")==-1)
+						{
+							stationSelected.metro=ArrayUtil.toArray(stnObj.metro);
+						}else
+						{
+							stationSelected.metro=stnObj.metro.split(",");
+						}
+						stationSelected.coordinate=stnObj.coordinate.split(",");
+						stationSelected.posX=event.target.x;
+						stationSelected.posY=event.target.y;
+						stationSelected.dnum=stnObj.dnum;
+						stationSelected.cnum=stnObj.cnum;
+					}
+				}
+				displayLine(stationSelected.metro);
+				/* 显示标识并定位至点击站点的位置 */
+				indicator.visible=true; 
+				indicator.move(event.target.x,event.target.y);
+				/* 创建并派发自定义事件对象（包含值对象） */
+				this.dispatchEvent(new ShowMap("showMap",stationSelected));
+			}
+			/* 对点击站点的相关线路高亮显示 */
+			public function displayLine(lineArray:Array):void
+			{	
+				maglev.alpha=0.2;
+				for(var j:Number=1;j<=lineImage.numChildren;j++)
+				{
+					this["line"+j].alpha=0.2;
+				}
+				for each(var num:Number in lineArray)
+				{
+					if(num)
+					{
+						this["line"+num].alpha=1.0;
+						/* 如果包含2，7号线，则磁悬浮显示 */
+						if(num==2||num==7)
+							maglev.alpha=1.0;
+					}	
+				}
+			}
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<s:HTTPService id="stationSrv" url="http://live.shanghaidaily.com/station/swf/data/station.asp"
+					   result="stationSrv_resultHandler(event)"/>
+	</fx:Declarations>
+	<s:transitions>
+		<s:Transition fromState="normal" toState="label_cn">
+			<s:Parallel>
+				<s:Fade alphaFrom="1.0" alphaTo="0.0" duration="500" target="{stationLabel_en}"/>
+				<s:Fade alphaFrom="0.0" alphaTo="1.0" duration="500" target="{stationLabel_cn}"/>
+			</s:Parallel>
+		</s:Transition>
+		<s:Transition fromState="label_cn" toState="normal">
+			<s:Parallel>
+				<s:Fade alphaFrom="0.0" alphaTo="1.0" duration="500" target="{stationLabel_en}"/>
+				<s:Fade alphaFrom="1.0" alphaTo="0.0" duration="500" target="{stationLabel_cn}"/>
+			</s:Parallel>
+		</s:Transition>
+	</s:transitions>
+	<s:states>
+		<s:State name="normal"/>
+		<s:State name="label_cn"/>
+	</s:states>
+	<s:Group x="1024" y="512">
+	<components:River id="river" x="-135" y="48"/>
+	<components:Maglev id="maglev" x="-135" y="49"/>
+	<s:Group id="lineImage">
+		<components:Line11 id="line11" x="-135" y="49"/>
+		<components:Line10 id="line10" x="-135" y="49"/>
+		<components:Line9 id="line9" x="-135" y="49"/>
+		<components:Line6 id="line6" x="-135" y="49"/>
+		<components:Line8 id="line8" x="-135" y="49"/>
+		<components:Line7 id="line7" x="-135" y="49"/>
+		<components:Line5 id="line5" x="-135" y="49"/>
+		<components:Line4 id="line4" x="-135" y="49"/>
+		<components:Line3 id="line3" x="-135" y="49"/>
+		<components:Line2 id="line2" x="-135" y="49"/>
+		<components:Line1 id="line1" x="-135" y="49"/>
+	</s:Group>
+
+	<s:Group id="stationLabel_cn" includeIn="label_cn" x="0" y="-2" fontSize="12">
+		<s:Label x="1107" y="1134" text="马当路"/>
+		<s:Label x="1111" y="1088" text="新天地"/>
+		<s:Label x="1124" y="1010" text="大世界"/>
+		<s:Label x="1096" y="952" text="曲阜路"/>
+		<s:Label x="1157" y="919" text="天潼路"/>
+		<s:Label x="1233" y="948" text="陆家嘴"/>
+		<s:Label x="1247" y="997" text="东昌路"/>
+		<s:Label x="1279" y="1032" text="商城路"/>
+		<s:Label x="1425" y="1049" text="杨高中路"/>
+		<s:Label x="1455" y="1149" text="世纪公园"/>
+		<s:Label x="1389" y="1095" text="上海科技馆"/>
+		<s:Label x="1229" y="1082" text="小南门"/>
+		<s:Label x="1294" y="1111" text="塘桥"/>
+		<s:Label x="1306" y="1078" text="浦电路"/>
+		<s:Label x="1230" y="1151" text="南浦大桥"/>
+		<s:Label x="1186" y="894" text="四川北路"/>
+		<s:Label x="1188" y="1012" text="豫园"/>
+		<s:Label x="1153" y="1099" text="陆家浜路" color="#700000"/>
+		<s:Label x="1158" y="1249" text="耀华路" color="#700000"/>
+		<s:Label x="1152" y="1170" text="西藏南路" color="#700000"/>
+		<s:Label x="1159" y="1052" text="老西门" color="#700000"/>
+		<s:Label x="1155" y="950" text="南京东路" color="#700000"/>
+		<s:Label x="1355" y="1035" text="世纪大道" color="#700000"/>
+		<s:Label x="1365" y="1138" text="蓝村路" color="#700000"/>
+		<s:Label x="1267" y="1227" text="高科西路" color="#700000"/>
+		<s:Label x="1497" y="1115" text="龙阳路" color="#700000"/>
+		<s:Label x="1198" y="837" text="海伦路" color="#700000"/>
+		<s:Label x="1199" y="762" text="四平路" color="#700000"/>
+		<s:Label x="1050" y="1012" text="人民广场" color="#700000"/>
+		<s:Label x="1016" y="968" text="新闸路"/>
+		<s:Label x="986" y="939" text="汉中路"/>
+		<s:Label x="929" y="963" text="昌平路"/>
+		<s:Label x="973" y="1014" text="南京西路"/>
+		<s:Label x="871" y="932" text="常熟路"/>
+		<s:Label x="1018" y="903" text="*上海火车站" color="#700000"/>
+		<s:Label x="866" y="882" text="镇平路" color="#700000"/>
+		<s:Label x="948" y="846" text="中山北路"/>
+		<s:Label x="949" y="910" text="中潭路"/>
+		<s:Label x="836" y="853" text="岚皋路"/>
+		<s:Label x="761" y="907" text="枫桥路"/>
+		<s:Label x="854" y="984" text="隆德路"/>
+		<s:Label x="724" y="984" text="金沙江路"/>
+		<s:Label x="697" y="1067" text="娄山关路"/>
+		<s:Label x="645" y="1030" text="威宁路"/>
+		<s:Label x="587" y="1067" text="北新泾"/>
+		<s:Label x="455" y="1216" text="航中路"/>
+		<s:Label x="502" y="1182" text="紫藤路"/>
+		<s:Label x="566" y="1190" text="龙柏新村"/>
+		<s:Label x="580" y="1142" text="龙溪路"/>
+		<s:Label x="629" y="1178" text="水城路"/>
+		<s:Label x="681" y="1141" text="伊犁路"/>
+		<s:Label x="732" y="1179" text="宋园路"/>
+		<s:Label x="804" y="1141" text="虹桥路" color="#700000"/>
+		<s:Label x="830" y="1182" text="宜山路" color="#700000"/>
+		<s:Label x="724" y="1104" text="延安西路"/>
+		<s:Label x="863" y="1126" text="交通大学"/>
+		<s:Label x="873" y="1052" text="上海图书馆"/>
+		<s:Label x="526" y="1031" text="淞虹路"/>
+		<s:Label x="295" y="1092" text="徐泾东"/>
+		<s:Label x="740" y="876" text="真如"/>
+		<s:Label x="663" y="812" text="李子园"/>
+		<s:Label x="621" y="781" text="祁连山路"/>
+		<s:Label x="624" y="717" text="武威路"/>
+		<s:Label x="516" y="715" text="南翔"/>
+		<s:Label x="458" y="751" text="马陆"/>
+		<s:Label x="271" y="808" text="安亭"/>
+		<s:Label x="355" y="732" text="嘉定新城"/>
+		<s:Label x="384" y="808" text="上海赛车场"/>
+		<s:Label x="322" y="775" text="上海汽车城"/>
+		<s:Label x="366" y="673" text="白银路"/>
+		<s:Label x="365" y="617" text="嘉定西"/>
+		<s:Label x="366" y="563" text="嘉定北"/>
+		<s:Label x="561" y="751" text="桃浦新村"/>
+		<s:Label x="684" y="843" text="上海西站"/>
+		<s:Label x="785" y="932" text="曹杨路" color="#700000"/>
+		<s:Label x="825" y="1031" text="江苏路" color="#700000"/>
+		<s:Label x="763" y="1031" text="中山公园" color="#700000"/>
+		<s:Label x="401" y="1075" text="*虹桥2号航站楼" color="#700000"/>
+		<s:Label x="519" y="1086" text="虹桥1号航站楼"/>
+		<s:Label x="551" y="1117" text="上海动物园"/>
+		<s:Label x="339" y="1117" text="虹桥火车站" color="#700000"/>
+		<s:Label x="813" y="817" text="新村路"/>
+		<s:Label x="801" y="776" text="大华三路"/>
+		<s:Label x="812" y="743" text="行知路"/>
+		<s:Label x="785" y="718" text="大场镇"/>
+		<s:Label x="760" y="690" text="场中路"/>
+		<s:Label x="796" y="648" text="上大路"/>
+		<s:Label x="769" y="622" text="南陈路"/>
+		<s:Label x="609" y="633" text="（未开通）"/>
+		<s:Label x="615" y="579" text="顾村公园"/>
+		<s:Label x="609" y="528" text="（未开通）"/>
+		<s:Label x="609" y="480" text="（未开通）"/>
+		<s:Label x="616" y="431" text="罗南新村"/>
+		<s:Label x="629" y="379" text="美兰湖"/>
+		<s:Label x="695" y="615" text="上海大学"/>
+		<s:Label x="961" y="810" text="延长路"/>
+		<s:Label x="936" y="772" text="上海马戏城"/>
+		<s:Label x="961" y="734" text="汶水路"/>
+		<s:Label x="948" y="695" text="彭浦新村"/>
+		<s:Label x="961" y="659" text="共康路"/>
+		<s:Label x="949" y="620" text="通河新村"/>
+		<s:Label x="960" y="582" text="呼兰路"/>
+		<s:Label x="949" y="542" text="共富新村"/>
+		<s:Label x="949" y="503" text="宝安公路"/>
+		<s:Label x="949" y="464" text="友谊西路"/>
+		<s:Label x="961" y="426" text="富锦路"/>
+		<s:Label x="1085" y="1041" text="黄陂南路"/>
+		<s:Label x="1021" y="1041" text="陕西南路"/>
+		<s:Label x="968" y="1041" text="常熟路" color="#700000"/>
+		<s:Label x="897" y="1013" text="静安寺" color="#700000"/>
+		<s:Label x="900" y="1093" text="衡山路"/>
+		<s:Label x="1020" y="1133" text="嘉善路"/>
+		<s:Label x="1064" y="1098" text="打浦桥"/>
+		<s:Label x="1034" y="1170" text="大木桥路"/>
+		<s:Label x="1038" y="1216" text="船厂路"/>
+		<s:Label x="1078" y="1248" text="后滩"/>
+		<s:Label x="1106" y="1285" text="长清路"/>
+		<s:Label x="1186" y="1298" text="成山路"/>
+		<s:Label x="1115" y="1321" text="杨思"/>
+		<s:Label x="1059" y="1413" text="凌兆新村"/>
+		<s:Label x="1070" y="1457" text="芦恒路"/>
+		<s:Label x="1070" y="1500" text="浦江镇"/>
+		<s:Label x="1070" y="1543" text="江月路"/>
+		<s:Label x="1070" y="1583" text="联航路"/>
+		<s:Label x="1045" y="1629" text="航天博物馆"/>
+		<s:Label x="1229" y="1265" text="云台路"/>
+		<s:Label x="1231" y="1194" text="临沂新村"/>
+		<s:Label x="1346" y="1225" text="杨高南路"/>
+		<s:Label x="1453" y="1237" text="锦秀路"/>
+		<s:Label x="1498" y="1192" text="芳华路"/>
+		<s:Label x="1564" y="1112" text="张江高科"/>
+		<s:Label x="1493" y="1079" text="花木路"/>
+		<s:Label x="1623" y="1148" text="金科路"/>
+		<s:Label x="1724" y="1148" text="唐镇"/>
+		<s:Label x="1761" y="1112" text="创新中路"/>
+		<s:Label x="1795" y="1152" text="华夏东路"/>
+		<s:Label x="1749" y="1201" text="川沙"/>
+		<s:Label x="1809" y="1184" text="凌空路"/>
+		<s:Label x="1842" y="1259" text="海天三路"/>
+		<s:Label x="1818" y="1306" text="浦东国际机场"/>
+		<s:Label x="1851" y="1184" text="远东大道"/>
+		<s:Label x="1669" y="1112" text="广兰路"/>
+		<s:Label x="1305" y="1280" text="东明路"/>
+		<s:Label x="1306" y="1316" text="高青路"/>
+		<s:Label x="1306" y="1357" text="华夏西路"/>
+		<s:Label x="1221" y="1340" text="上南路"/>
+		<s:Label x="1161" y="1378" text="灵岩南路"/>
+		<s:Label x="1331" y="1179" text="上海儿童医学中心"/>
+		<s:Label x="1093" y="1206" text="鲁班路"/>
+		<s:Label x="908" y="1232" text="上海体育场"/>
+		<s:Label x="913" y="1152" text="徐家汇" color="#700000"/>
+		<s:Label x="868" y="1196" text="上海体育馆" color="#700000"/>
+		<s:Label x="974" y="1094" text="肇嘉浜路" color="#700000"/>
+		<s:Label x="981" y="1164" text="东安路" color="#700000"/>
+		<s:Label x="702" y="1408" text="外环路"/>
+		<s:Label x="692" y="1489" text="春生路"/>
+		<s:Label x="693" y="1521" text="银都路"/>
+		<s:Label x="693" y="1553" text="颛桥"/>
+		<s:Label x="694" y="1587" text="北桥"/>
+		<s:Label x="692" y="1621" text="剑川路"/>
+		<s:Label x="611" y="1640" text="金平路"/>
+		<s:Label x="506" y="1640" text="文井路"/>
+		<s:Label x="446" y="1674" text="闵行开发区"/>
+		<s:Label x="558" y="1675" text="华宁路"/>
+		<s:Label x="692" y="1656" text="东川路"/>
+		<s:Label x="681" y="1440" text="莘庄" color="#700000"/>
+		<s:Label x="735" y="1375" text="莲花路"/>
+		<s:Label x="756" y="1344" text="锦江乐园"/>
+		<s:Label x="791" y="1311" text="上海南站" color="#700000"/>
+		<s:Label x="838" y="1275" text="漕宝路"/>
+		<s:Label x="768" y="1235" text="桂林路"/>
+		<s:Label x="631" y="1237" text="合川路"/>
+		<s:Label x="512" y="1238" text="七宝"/>
+		<s:Label x="451" y="1274" text="中春路"/>
+		<s:Label x="401" y="1239" text="九亭"/>
+		<s:Label x="337" y="1274" text="泗泾"/>
+		<s:Label x="258" y="1296" text="佘山"/>
+		<s:Label x="256" y="1349" text="洞泾"/>
+		<s:Label x="221" y="1400" text="松江大学城"/>
+		<s:Label x="232" y="1453" text="松江新城"/>
+		<s:Label x="569" y="1274" text="星中路"/>
+		<s:Label x="677" y="1274" text="漕河泾开发区"/>
+		<s:Label x="930" y="1267" text="漕溪路"/>
+		<s:Label x="967" y="1297" text="龙漕路"/>
+		<s:Label x="936" y="1330" text="石龙路"/>
+		<s:Label x="1118" y="881" text="宝山路"/>
+		<s:Label x="1044" y="846" text="中兴路"/>
+		<s:Label x="1033" y="810" text="西藏北路"/>
+		<s:Label x="1149" y="761" text="曲阳路"/>
+		<s:Label x="1082" y="758" text="赤峰路"/>
+		<s:Label x="1081" y="727" text="大柏树"/>
+		<s:Label x="1081" y="693" text="江湾镇"/>
+		<s:Label x="1070" y="660" text="殷高西路"/>
+		<s:Label x="1069" y="629" text="长江南路"/>
+		<s:Label x="1103" y="603" text="淞发路"/>
+		<s:Label x="1102" y="576" text="张华浜"/>
+		<s:Label x="1103" y="543" text="淞滨路"/>
+		<s:Label x="1103" y="507" text="水产路"/>
+		<s:Label x="1103" y="472" text="宝杨路"/>
+		<s:Label x="1101" y="440" text="友谊路"/>
+		<s:Label x="1078" y="416" text="铁力路"/>
+		<s:Label x="1041" y="389" text="江杨北路"/>
+		<s:Label x="1236" y="797" text="鞍山新村"/>
+		<s:Label x="1199" y="705" text="同济大学"/>
+		<s:Label x="1202" y="733" text="国权路"/>
+		<s:Label x="1210" y="667" text="五角场"/>
+		<s:Label x="1211" y="586" text="三门路"/>
+		<s:Label x="1200" y="547" text="殷高东路"/>
+		<s:Label x="1200" y="502" text="江湾新城"/>
+		<s:Label x="1187" y="627" text="江湾体育场"/>
+		<s:Label x="1289" y="763" text="江浦路"/>
+		<s:Label x="1332" y="799" text="黄兴路"/>
+		<s:Label x="1310" y="737" text="延吉中路"/>
+		<s:Label x="1310" y="702" text="黄兴公园"/>
+		<s:Label x="1322" y="665" text="翔殷路"/>
+		<s:Label x="1321" y="628" text="嫩江路"/>
+		<s:Label x="1321" y="590" text="市光路"/>
+		<s:Label x="1201" y="815" text="邮电新村"/>
+		<s:Label x="1254" y="837" text="临平路"/>
+		<s:Label x="1306" y="858" text="大连路"/>
+		<s:Label x="1332" y="885" text="杨树浦路"/>
+		<s:Label x="1409" y="1010" text="源深体育中心"/>
+		<s:Label x="1439" y="982" text="民生路"/>
+		<s:Label x="1467" y="953" text="北洋泾路"/>
+		<s:Label x="1495" y="925" text="德平路"/>
+		<s:Label x="1521" y="893" text="云山路"/>
+		<s:Label x="1521" y="856" text="金桥路"/>
+		<s:Label x="1521" y="820" text="博兴路"/>
+		<s:Label x="1521" y="784" text="五莲路"/>
+		<s:Label x="1520" y="748" text="巨峰路"/>
+		<s:Label x="1520" y="711" text="东靖路"/>
+		<s:Label x="1520" y="674" text="五洲大道"/>
+		<s:Label x="1520" y="640" text="洲海路"/>
+		<s:Label x="1519" y="604" text="外高桥保税区南"/>
+		<s:Label x="1519" y="570" text="航津路"/>
+		<s:Label x="1493" y="502" text="港城路"/>
+		<s:Label x="1519" y="533" text="外高桥保税区北"/>
+		<s:Label x="1343" y="952" text="浦东大道"/>
+		<s:Label x="1141" y="829" text="东宝兴路"/>
+		<s:Label x="1045" y="782" text="*虹口足球场" color="#700000"/>
+	</s:Group>
+	<s:Group id="stationLabel_en" excludeFrom="label_cn">
+		<s:Label x="1105" y="1132" text="Madang Rd"/>
+		<s:Label x="1098" y="1086" text="Xintiandi"/>
+		<s:Label x="1128" y="1009" text="Dashijie"/>
+		<s:Label x="1069" y="953" text="Qufu Rd"/>
+		<s:Label x="1158" y="924" text="Tiantong Rd"/>
+		<s:Label x="1234" y="949" text="Lujiazui"/>
+		<s:Label x="1210" y="990" text="Dongchang Rd"/>
+		<s:Label x="1251" y="1033" text="Shangcheng Rd"/>
+		<s:Label x="1427" y="1050" text="Yanggao Rd M."/>
+		<s:Label x="1435" y="1147" text="Century Park"/>
+		<s:Label x="1391" y="1084" text="Shanghai Science &amp; Technology Museum" width="102" height="25"/>
+		<s:Label x="1220" y="1089" text="Xiaonanmen"/>
+		<s:Label x="1279" y="1113" text="Tangqiao"/>
+		<s:Label x="1377" y="1123" text="Pudian Rd" width="38" height="25"/>
+		<s:Label x="1294" y="1092" text="Pudian Rd"/>
+		<s:Label x="1235" y="1149" text="Nanpu Bridge" width="43" height="25"/>
+		<s:Label x="1185" y="894" text="Sichuan Rd N."/>
+		<s:Label x="1187" y="1009" text="Yuyuan Garden" width="45" height="20"/>
+		<s:Label x="1145" y="1099" text="Lujiabang Rd" color="#700000"/>
+		<s:Label x="1150" y="1250" text="Yaohua Rd" color="#700000"/>
+		<s:Label x="1159" y="1160" text="Xizang Rd S." color="#700000" width="40" height="29"/>
+		<s:Label x="1153" y="1052" text="Laoximen" color="#700000"/>
+		<s:Label x="1114" y="951" text="Nanjing Rd E." color="#700000"/>
+		<s:Label x="1307" y="1062" text="Century Avenue" color="#700000" width="44" height="29"/>
+		<s:Label x="1354" y="1153" text="Lancun Rd" color="#700000"/>
+		<s:Label x="1261" y="1227" text="Gaoke Rd W." color="#700000"/>
+		<s:Label x="1504" y="1148" text="Longyang Rd" color="#700000"/>
+		<s:Label x="1140" y="834" text="Hailun Rd" color="#700000"/>
+		<s:Label x="1215" y="796" text="Siping Rd" color="#700000"/>
+		<s:Label text="People's Square" x="1038" y="990" width="45" height="26" color="#700000"/>
+		<s:Label x="1003" y="972" text="Xinzha Rd"/>
+		<s:Label x="962" y="949" text="Hanzhong Rd"/>
+		<s:Label x="883" y="976" text="Changping Rd"/>
+		<s:Label x="966" y="1013" text="Nanjing Rd W."/>
+		<s:Label x="884" y="936" text="Changshou Rd"/>
+		<s:Label x="1020" y="901" text="*Shanghai Railway Station" height="29" color="#700000" width="79"/>
+		<s:Label x="843" y="877" text="Zhenping Rd" color="#700000"/>
+		<s:Label x="916" y="847" text="Zhongshan Rd N." />
+		<s:Label x="937" y="908" text="Zhongtan Rd" />
+		<s:Label x="817" y="851" text="Langao Rd" />
+		<s:Label x="734" y="909" text="Fengqiao Rd" />
+		<s:Label x="818" y="976" text="Longde Rd" />
+		<s:Label x="702" y="983" text="Jinshajiang Rd" />
+		<s:Label x="681" y="1066" text="Loushanguan Rd"/>
+		<s:Label x="636" y="1030" text="Weining Rd"/>
+		<s:Label x="584" y="1065" text="Beixinjing" />
+		<s:Label x="438" y="1216" text="Hangzhong Rd"/>
+		<s:Label x="503" y="1165" text="Ziteng Rd"/>
+		<s:Label x="542" y="1208" text="Longbai Xincun"/>
+		<s:Label x="575" y="1140" text="Longxi Rd"/>
+		<s:Label x="615" y="1176" text="Shuicheng Rd"/>
+		<s:Label x="685" y="1141" text="Yili Rd"/>
+		<s:Label x="719" y="1176" text="Songyuan Rd"/>
+		<s:Label x="805" y="1140" text="Hongqiao Rd" color="#700000"/>
+		<s:Label x="777" y="1200" text="Yishan Rd" color="#700000"/>
+		<s:Label x="711" y="1111" text="Yan'an Rd W."/>
+		<s:Label x="811" y="1093" text="Jiaotong University"/>
+		<s:Label x="869" y="1056" text="Shanghai Library"/>
+		<s:Label x="511" y="1030" text="Songhong Rd"/>
+		<s:Label x="282" y="1105" text="East Xujing"/>
+		<s:Label x="728" y="875" text="Zhenru" />
+		<s:Label x="658" y="809" text="Liziyuan" />
+		<s:Label x="600" y="779" text="Qilianshan Rd" />
+		<s:Label x="620" y="716" text="Wuwei Rd" />
+		<s:Label x="506" y="714" text="Nanxiang" />
+		<s:Label x="459" y="751" text="Malu" />
+		<s:Label x="268" y="808" text="Anting" />
+		<s:Label x="321" y="731" text="Jiading Xincheng" />
+		<s:Label x="376" y="810" text="Shanghai Circuit" />
+		<s:Label x="318" y="765" text="Shanghai Automobile City"  width="75" height="24"/>
+		<s:Label x="356" y="673" text="Baiyin Rd" />
+		<s:Label x="342" y="616" text="West Jiading" />
+		<s:Label x="340" y="563" text="North Jiading" />
+		<s:Label x="553" y="751" text="Taopu Xincun" />
+		<s:Label x="656" y="840" text="Shanghai West Railway Station"  width="80" height="26"/>
+		<s:Label x="759" y="935" text="Caoyang Rd"  color="#700000"/>
+		<s:Label x="812" y="1031" text="Jiangsu Rd"  color="#700000"/>
+		<s:Label x="752" y="1025" text="Zhongshan Park"  color="#700000" width="60" height="25"/>
+		<s:Label x="413" y="1065" text="*Hongqiao Airport Terminal 2"  color="#700000" width="90" height="22"/>
+		<s:Label x="525" y="1082" text="Hongqiao &#xd;Airport Terminal 1&#xd;"/>
+		<s:Label x="554" y="1118" text="Shanghai Zoo"/>
+		<s:Label x="359" y="1121" text="Hongqiao Railway Station"  color="#700000" width="75" height="29"/>
+		<s:Label x="798" y="817" text="Xincun Rd" />
+		<s:Label x="782" y="781" text="Dahuasan Rd" />
+		<s:Label x="797" y="748" text="Xingzhi Rd" />
+		<s:Label x="752" y="718" text="Dachang Town" />
+		<s:Label x="715" y="690" text="Changzhong Rd" />
+		<s:Label x="793" y="649" text="Shangda Rd" />
+		<s:Label x="766" y="620" text="Nanchen Rd" />
+		<s:Label x="611" y="633" text="(Not Open)" />
+		<s:Label x="608" y="579" text="Gucun Park" />
+		<s:Label x="611" y="529" text="(Not Open)" />
+		<s:Label x="612" y="481" text="(Not Open)" />
+		<s:Label x="592" y="432" text="Luonan Xincun" />
+		<s:Label x="608" y="379" text="Meilan Lake"/>
+		<s:Label x="696" y="606" text="Shanghai University"  width="50" height="25"/>
+		<s:Label x="933" y="810" text="Yanchang Rd"/>
+		<s:Label x="892" y="772" text="Shanghai Circus World"/>
+		<s:Label x="940" y="734" text="Wenshui Rd"/>
+		<s:Label x="924" y="695" text="Pengpu Xincun"/>
+		<s:Label x="931" y="659" text="Gongkang Rd"/>
+		<s:Label x="926" y="620" text="Tonghe Xincun"/>
+		<s:Label x="953" y="582" text="Hulan Rd"/>
+		<s:Label x="926" y="541" text="Gongfu Xincun"/>
+		<s:Label x="921" y="502" text="Bao'an Highway"/>
+		<s:Label x="942" y="464" text="Youyi Rd W."/>
+		<s:Label x="959" y="426" text="Fujin Rd"/>
+		<s:Label x="1070" y="1040" text="Huangpi Rd S." width="51" height="29"/>
+		<s:Label x="1018" y="1040" text="Shaanxi Rd S." width="51" height="27"/>
+		<s:Label x="942" y="1043" text="Changshu Rd" color="#700000"/>
+		<s:Label x="882" y="1013" text="Jing'an Temple" color="#700000"/>
+		<s:Label x="907" y="1090" text="Hengshan Rd"/>
+		<s:Label x="1010" y="1098" text="Jiashan Rd"/>
+		<s:Label x="1052" y="1133" text="Dapuqiao"/>
+		<s:Label x="1017" y="1171" text="Damuqiao Rd"/>
+		<s:Label x="993" y="1230" text="Chuanchang Rd"/>
+		<s:Label x="1071" y="1249" text="Houtan"/>
+		<s:Label x="1087" y="1284" text="Changqiang Rd"/>
+		<s:Label x="1187" y="1296" text="Chengshan Rd"/>
+		<s:Label x="1108" y="1321" text="Yangsi"/>
+		<s:Label x="1029" y="1413" text="Lingzhao Xincun"/>
+		<s:Label x="1054" y="1457" text="Luheng Rd"/>
+		<s:Label x="1043" y="1499" text="Pujiang Town"/>
+		<s:Label x="1048" y="1543" text="Jiangyue Rd"/>
+		<s:Label x="1046" y="1584" text="Lianhang Rd"/>
+		<s:Label x="1055" y="1628" text="Aerospace Museum" width="59" height="24"/>
+		<s:Label x="1209" y="1226" text="Yuntai Rd"/>
+		<s:Label x="1222" y="1193" text="Linyi Xincun"/>
+		<s:Label x="1335" y="1225" text="Yanggao Rd S."/>
+		<s:Label x="1453" y="1235" text="Jinxiu Rd"/>
+		<s:Label x="1499" y="1190" text="Fanghua Rd"/>
+		<s:Label x="1581" y="1148" text="Zhangjiang Hi-Tech Park" width="60" height="24"/>
+		<s:Label x="1548" y="1089" text="Huamu Rd"/>
+		<s:Label x="1620" y="1110" text="Jinke Rd"/>
+		<s:Label x="1712" y="1110" text="Tangzhen"/>
+		<s:Label x="1799" y="1120" text="Chuangxin Rd M." width="54" height="25"/>
+		<s:Label x="1712" y="1172" text="Huaxia Rd E."/>
+		<s:Label x="1724" y="1209" text="Chuansha"/>
+		<s:Label x="1798" y="1184" text="Lingkong Rd"/>
+		<s:Label x="1822" y="1258" text="Haitiansan Rd"/>
+		<s:Label x="1788" y="1304" text="Pudong International Airport" width="101" height="25" textAlign="right"/>
+		<s:Label x="1868" y="1173" text="Yuandong Avenue" width="53" height="25"/>
+		<s:Label x="1658" y="1148" text="Guanglan Rd"/>
+		<s:Label x="1306" y="1278" text="Dongming Rd"/>
+		<s:Label x="1306" y="1315" text="Gaoqing Rd"/>
+		<s:Label x="1306" y="1357" text="Huaxia Rd W."/>
+		<s:Label x="1206" y="1342" text="Shangnan Rd"/>
+		<s:Label x="1164" y="1376" text="Lingyan Rd S." width="45" height="23"/>
+		<s:Label x="1332" y="1179" text="Shanghai Children's Medical Center" width="95" height="21"/>
+		<s:Label x="1089" y="1170" text="Luban Rd"/>
+		<s:Label x="929" y="1229" text="Shanghai Stadium" width="52" height="29"/>
+		<s:Label x="879" y="1134" text="Xujiahui" color="#700000"/>
+		<s:Label x="867" y="1184" text="Shanghai Indoor Stadium" color="#700000" width="78" height="29"/>
+		<s:Label x="956" y="1134" text="Zhaojiabang Rd" color="#700000"/>
+		<s:Label x="937" y="1169" text="Dong'an Rd" color="#700000"/>
+		<s:Label x="677" y="1410" text="Waihuan Rd"/>
+		<s:Label x="693" y="1488" text="Chunshen Rd"/>
+		<s:Label x="693" y="1522" text="Yindu Rd"/>
+		<s:Label x="693" y="1555" text="Zhuanqiao"/>
+		<s:Label x="693" y="1590" text="Beiqiao"/>
+		<s:Label x="693" y="1622" text="Jianchuan Rd"/>
+		<s:Label x="605" y="1639" text="Jinping Rd"/>
+		<s:Label x="500" y="1639" text="Wenjing Rd"/>
+		<s:Label x="423" y="1665" text="Minhang Development Zone" width="97" height="28"/>
+		<s:Label x="549" y="1673" text="Huaning Rd"/>
+		<s:Label x="693" y="1655" text="Dongchuan Rd"/>
+		<s:Label x="655" y="1439" text="Xinzhuang" color="#700000"/>
+		<s:Label x="713" y="1376" text="Lianhua Rd"/>
+		<s:Label x="739" y="1346" text="Jinjiang Park"/>
+		<s:Label x="762" y="1303" text="Shanghai South Railway Statiion" color="#700000" width="92" height="22"/>
+		<s:Label x="816" y="1277" text="Caobao Rd"/>
+		<s:Label x="758" y="1236" text="Guilin Rd"/>
+		<s:Label x="620" y="1237" text="Hechuan Rd"/>
+		<s:Label x="515" y="1238" text="Qibao"/>
+		<s:Label x="435" y="1274" text="Zhongchun Rd"/>
+		<s:Label x="400" y="1238" text="Jiuting"/>
+		<s:Label x="336" y="1274" text="Sijing"/>
+		<s:Label x="236" y="1295" text="Sheshan"/>
+		<s:Label x="237" y="1348" text="Dongjing"/>
+		<s:Label x="157" y="1399" text="Songjiang University Town" textAlign="left"/>
+		<s:Label x="182" y="1452" text="Songjiang Xincheng" textAlign="left"/>
+		<s:Label x="557" y="1274" text="Xingzhong Rd"/>
+		<s:Label x="687" y="1273" text="Caohejing   Hi-Tech Park" width="65" height="28"/>
+		<s:Label x="908" y="1273" text="Caoxi Rd"/>
+		<s:Label x="968" y="1301" text="Longcao Rd"/>
+		<s:Label x="936" y="1332" text="Shilong Rd"/>
+		<s:Label x="1120" y="878" text="Baoshan Rd" width="45" height="25"/>
+		<s:Label x="1062" y="842" width="55" height="20" text="Zhongxing Rd"/>
+		<s:Label x="1030" y="808" text="Xizang Rd N."/>
+		<s:Label x="1146" y="763" text="Quyang Rd"/>
+		<s:Label x="1066" y="760" text="Chifeng Rd"/>
+		<s:Label x="1072" y="727" text="Dabaishu"/>
+		<s:Label x="1046" y="695" text="Jiangwan Town"/>
+		<s:Label x="1055" y="663" text="Yingao Rd W."/>
+		<s:Label x="1038" y="631" text="Changjiang Rd S."/>
+		<s:Label x="1087" y="605" text="Songfa Rd"/>
+		<s:Label x="1065" y="576" text="Zhanghuabang"/>
+		<s:Label x="1083" y="544" text="Songbin Rd"/>
+		<s:Label x="1077" y="508" text="Shuichan Rd"/>
+		<s:Label x="1079" y="473" text="Baoyang Rd"/>
+		<s:Label x="1095" y="442" text="Youyi Rd"/>
+		<s:Label x="1076" y="418" text="Tieli Rd"/>
+		<s:Label x="1039" y="390" text="Jiangyang Rd N." width="52" height="28"/>
+		<s:Label x="1225" y="764" text="Anshan Xincun"/>
+		<s:Label x="1163" y="736" text="Tongji University"/>
+		<s:Label x="1186" y="706" text="Guoquan Rd"/>
+		<s:Label x="1186" y="667" text="Wujiaochang"/>
+		<s:Label x="1191" y="587" text="Sanmen Rd"/>
+		<s:Label x="1186" y="548" text="Yingao Rd E."/>
+		<s:Label x="1167" y="513" text="Xinjiangwancheng"/>
+		<s:Label x="1201" y="627" width="52" height="23" text="Jiangwan Stadium"/>
+		<s:Label x="1283" y="796" text="Jiangpu Rd"/>
+		<s:Label x="1316" y="764" text="Huangxing Rd"/>
+		<s:Label x="1306" y="739" text="Yanji Rd M."/>
+		<s:Label x="1282" y="706" text="Huangxing Park"/>
+		<s:Label x="1301" y="670" text="Xiangyin Rd"/>
+		<s:Label x="1301" y="632" text="Nenjiang Rd"/>
+		<s:Label x="1297" y="594" text="Shiguang Rd"/>
+		<s:Label x="1200" y="817" text="Youdian Xincun"/>
+		<s:Label x="1221" y="832" text="Linping Rd"/>
+		<s:Label x="1302" y="853" text="Dalian Rd"/>
+		<s:Label x="1326" y="878" text="Yangshupu Rd"/>
+		<s:Label x="1410" y="1013" text="Yuanshen Stadium"/>
+		<s:Label x="1437" y="986" text="Minsheng Rd"/>
+		<s:Label x="1467" y="957" text="Beiyangjing Rd"/>
+		<s:Label x="1495" y="929" text="Deping Rd"/>
+		<s:Label x="1520" y="895" text="Yunshan Rd"/>
+		<s:Label x="1521" y="856" text="Jinqiao Rd"/>
+		<s:Label x="1520" y="820" text="Boxing Rd"/>
+		<s:Label x="1520" y="786" text="Wulian Rd"/>
+		<s:Label x="1519" y="747" text="Jufeng Rd"/>
+		<s:Label x="1519" y="712" text="Dongjing Rd"/>
+		<s:Label x="1520" y="676" text="Wuzhou Avenue"/>
+		<s:Label x="1520" y="641" text="Zhouhai Rd"/>
+		<s:Label x="1519" y="604" text="South Waigaoqiao Free Trade Zone"/>
+		<s:Label x="1519" y="570" text="Hangjin Rd"/>
+		<s:Label x="1492" y="502" text="Gangcheng Rd"/>
+		<s:Label x="1519" y="534" text="North Waigaoqiao Free Trade Zone"/>
+		<s:Label x="1344" y="950" text="Pudong Avenue" width="42" height="28"/>
+		<s:Label x="1099" y="806" text="Dongbaoxing Rd" width="74" height="23" textAlign="right"/>
+		<s:Label x="1029" y="778" width="93" height="28" color="#700000" text="*Hongkou Football Stadium"/>
+	</s:Group>
+    <s:Group id="canvasLayer" width="4092" height="3072">
+		
+	</s:Group>
+	<s:Group id="stationBtn" x="-2" y="0">
+		<s:Button id="stn_118" x="1111" y="1623" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_99" x="1633" y="1126" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_103" x="1682" y="1126" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_105" x="1729" y="1126" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_106" x="1778" y="1126" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_108" x="1778" y="1161" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_109" x="1779" y="1198" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_110" x="1821" y="1199" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_112" x="1868" y="1198" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_234" x="1301" y="1126" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_113" x="1896" y="1254" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_115" x="1896" y="1304" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_111" x="1112" y="1538" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_114" x="1112" y="1578" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_216" x="622" y="1651" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_217" x="570" y="1651" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_219" x="518" y="1651" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_220" x="469" y="1651" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_214" x="671" y="1650" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_213" x="671" y="1616" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_211" x="671" y="1583" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_209" x="671" y="1548" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_208" x="671" y="1515" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_17" x="1028" y="932" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_5" x="1005" y="460" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_6" x="1005" y="499" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_4" x="1005" y="422" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_7" x="1005" y="538" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_8" x="1005" y="578" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_9" x="1005" y="616" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_10" x="1005" y="655" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_11" x="1005" y="691" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_12" x="1005" y="730" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_13" x="1005" y="768" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_14" x="1006" y="806" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_65" x="1082" y="853" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_69" x="1082" y="933" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_120" x="1137" y="914" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_61" x="1082" y="818" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_215" x="1125" y="816" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_44" x="1160" y="776" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_41" x="1301" y="776" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_107" x="1239" y="745" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_104" x="1254" y="702" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_100" x="1254" y="623" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_98" x="1254" y="581" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_95" x="1254" y="543" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_94" x="1254" y="498" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_101" x="1254" y="663" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_42" x="1253" y="775" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_40" x="1343" y="776" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_3" x="1364" y="588" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_32" x="1364" y="627" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_36" x="1364" y="664" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_38" x="1364" y="701" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_39" x="1364" y="737" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_210" x="1126" y="756" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_206" x="1126" y="723" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_203" x="1126" y="690" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_202" x="1126" y="657" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_201" x="1127" y="626" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_200" x="1147" y="607" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_199" x="1147" y="572" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_197" x="1147" y="539" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_205" x="1147" y="504" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_190" x="1147" y="469" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_188" x="1147" y="436" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_186" x="1122" y="412" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_160" x="1097" y="386" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_15" x="1005" y="843" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_18" x="1058" y="962" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_73" x="1129" y="1024" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_121" x="1169" y="995" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_221" x="961" y="878" buttonMode="true" skinClass="skins.Station90"/>
+		<s:Button id="stn_179" x="910" y="878" buttonMode="true" skinClass="skins.Station90"/>
+		<s:Button id="stn_16" x="1005" y="878" buttonMode="true" skinClass="skins.Station90"/>
+		<s:Button id="stn_34" x="378" y="1087" buttonMode="true" skinClass="skins.Station90"/>
+		<s:Button id="stn_35" x="435" y="1087" buttonMode="true" skinClass="skins.Station90"/>
+		<s:Button id="stn_59" x="992" y="1107" buttonMode="true" skinClass="skins.Station90"/>
+		<s:Button id="stn_254" x="993" y="1177" buttonMode="true" skinClass="skins.Station90"/>
+		<s:Button id="stn_21" x="1043" y="1055" buttonMode="true" skinClass="skins.Station90"/>
+		<s:Button id="stn_19" x="1087" y="992" buttonMode="true" skinClass="skins.Station180"/>
+		<s:Button id="stn_67" x="1133" y="963" buttonMode="true" skinClass="skins.Station180"/>
+		<s:Button id="stn_75" x="1166" y="1066" buttonMode="true" skinClass="skins.Station180"/>
+		<s:Button id="stn_51" x="1166" y="1112" buttonMode="true" skinClass="skins.Station180"/>
+		<s:Button id="stn_84" x="1165" y="1183" buttonMode="true" skinClass="skins.Station180"/>
+		<s:Button id="stn_86" x="1164" y="1262" buttonMode="true" skinClass="skins.Station180"/>
+		<s:Button id="stn_218" x="1111" y="858" buttonMode="true" skinClass="skins.Station180"/>
+		<s:Button id="stn_52" x="1115" y="787" buttonMode="true" skinClass="skins.Station180"/>
+		<s:Button id="stn_22" x="976" y="1055" buttonMode="true" skinClass="skins.Station180"/>
+		<s:Button id="stn_25" x="885" y="1209" buttonMode="true" skinClass="skins.Station180"/>
+		<s:Button id="stn_24" x="886" y="1147" buttonMode="true" skinClass="skins.Station180"/>
+		<s:Button id="stn_224" x="777" y="1099" buttonMode="true" skinClass="skins.Station180"/>
+		<s:Button id="stn_126" x="794" y="1155" buttonMode="true" skinClass="skins.Station180"/>
+		<s:Button id="stn_62" x="834" y="1194" buttonMode="true" skinClass="skins.Station180"/>
+		<s:Button id="stn_55" x="776" y="1044" buttonMode="true" skinClass="skins.Station180"/>
+		<s:Button id="stn_223" x="777" y="981" buttonMode="true" skinClass="skins.Station180"/>
+		<s:Button id="stn_138" x="830" y="927" buttonMode="true" skinClass="skins.Station180"/>
+		<s:Button id="stn_57" x="832" y="1044" buttonMode="true" skinClass="skins.Station180"/>
+		<s:Button id="stn_60" x="906" y="991" buttonMode="true" skinClass="skins.Station180"/>
+		<s:Button id="stn_27" x="830" y="1323" buttonMode="true" skinClass="skins.Station180"/>
+		<s:Button id="stn_31" x="697" y="1452" buttonMode="true" skinClass="skins.Station180"/>
+		<s:Button id="stn_124" x="892" y="1066" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_184" x="910" y="953" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_64" x="992" y="991" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_137" x="836" y="991" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_182" x="910" y="918" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_125" x="848" y="1107" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_20" x="1104" y="1053" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_122" x="1121" y="1066" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_54" x="1118" y="1111" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_56" x="1075" y="1111" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_231" x="1052" y="1183" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_191" x="1069" y="1262" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_189" x="1014" y="1208" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_232" x="1104" y="1183" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_192" x="1118" y="1262" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_87" x="1169" y="1305" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_88" x="1141" y="1331" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_251" x="1178" y="1356" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_92" x="1112" y="1408" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_96" x="1112" y="1452" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_102" x="1112" y="1494" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_58" x="1031" y="1111" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_23" x="929" y="1105" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_230" x="931" y="1209" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_226" x="914" y="1252" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_63" x="785" y="1248" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_127" x="744" y="1155" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_128" x="692" y="1155" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_129" x="641" y="1155" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_130" x="591" y="1155" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_135" x="504" y="1094" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_37" x="537" y="1044" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_33" x="337" y="1088" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_46" x="599" y="1044" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_48" x="657" y="1044" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_144" x="636" y="729" buttonMode="true" skinClass="skins.Station0"/>	
+		<s:Button id="stn_165" x="712" y="630" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_167" x="750" y="630" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_177" x="880" y="848" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_173" x="855" y="734" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_174" x="855" y="778" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_176" x="855" y="821" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_171" x="828" y="706" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_170" x="802" y="681" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_168" x="777" y="656" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_156" x="671" y="375" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_157" x="671" y="427" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button x="671" y="629" buttonMode="true" enabled="false" skinClass="skins.Station0"/>
+		<s:Button x="671" y="476" buttonMode="true" enabled="false" skinClass="skins.Station0"/>
+		<s:Button x="671" y="524" buttonMode="true" enabled="false" skinClass="skins.Station0"/>
+		<s:Button id="stn_162" x="671" y="574" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_148" x="408" y="728" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_152" x="408" y="786" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_155" x="278" y="786" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_154" x="344" y="788" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_149" x="408" y="669" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_150" x="408" y="613" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_151" x="408" y="560" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_147" x="464" y="728" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_146" x="521" y="728" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_145" x="578" y="728" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_143" x="671" y="764" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_142" x="703" y="796" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_141" x="736" y="829" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_140" x="768" y="861" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_139" x="799" y="892" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_53" x="715" y="1044" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_134" x="535" y="1125" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_131" x="523" y="1194" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_132" x="553" y="1171" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_133" x="467" y="1194" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_66" x="706" y="1250" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_68" x="642" y="1251" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_71" x="581" y="1251" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_72" x="518" y="1252" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_74" x="463" y="1252" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_85" x="287" y="1449" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_255" x="287" y="1396" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_82" x="287" y="1345" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_79" x="287" y="1292" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_78" x="343" y="1252" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_77" x="407" y="1252" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_26" x="871" y="1287" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_227" x="948" y="1289" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_229" x="916" y="1321" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_28" x="801" y="1356" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_207" x="671" y="1481" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_29" x="770" y="1387" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_30" x="738" y="1419" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_43" x="1204" y="776" buttonMode="true" skinClass="skins.Station180"/>
+		<s:Button id="stn_117" x="1182" y="841" buttonMode="true" skinClass="skins.Station90"/>
+		<s:Button id="stn_116" x="1182" y="803" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_244" x="1237" y="845" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_243" x="1285" y="861" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_242" x="1312" y="888" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_241" x="1324" y="957" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_76" x="1287" y="986" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_240" x="1348" y="1079" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_163" x="1498" y="528" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_159" x="1469" y="498" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_166" x="1498" y="564" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_169" x="1498" y="599" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_172" x="1498" y="635" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_175" x="1498" y="670" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_91" x="1498" y="706" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_180" x="1498" y="743" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_181" x="1498" y="780" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_183" x="1498" y="816" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_185" x="1498" y="852" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_225" x="1498" y="892" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_228" x="1471" y="921" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_236" x="1443" y="948" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_238" x="1385" y="1006" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_45" x="1404" y="1045" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_237" x="1414" y="977" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_89" x="1412" y="1108" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_239" x="1370" y="1103" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_253" x="1472" y="1126" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_97" x="1581" y="1126" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_204" x="1531" y="1089" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_50" x="1214" y="1066" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_233" x="1223" y="1129" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_245" x="1317" y="1160" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_49" x="1291" y="1045" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_196" x="1439" y="1218" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_198" x="1484" y="1174" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_195" x="1364" y="1238" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_246" x="1284" y="1193" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_193" x="1227" y="1240" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_70" x="1244" y="961" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_119" x="1167" y="881" buttonMode="true" skinClass="skins.Station0" />
+		<s:Button id="stn_47" x="1344" y="1045" buttonMode="true" skinClass="skins.Station180"/>
+		<s:Button id="stn_93" x="1526" y="1127" buttonMode="true" skinClass="skins.Station180"/>
+		<s:Button id="stn_194" x="1280" y="1240" buttonMode="true" skinClass="skins.Station180"/>
+		<s:Button id="stn_235" x="1348" y="1121" buttonMode="true" skinClass="skins.Station90"/>
+		<s:Button id="stn_250" x="1232" y="1356" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_249" x="1284" y="1355" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_247" x="1284" y="1275" buttonMode="true" skinClass="skins.Station0"/>
+		<s:Button id="stn_248" x="1284" y="1310" buttonMode="true" skinClass="skins.Station0"/>
+	</s:Group>
+	<components:Indicator id="indicator" visible="false"/>	
+	</s:Group>
+</s:SkinnableContainer>

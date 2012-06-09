@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx" 
+		 width="100%" height="100%">
+	
+	<fx:Script>
+		<![CDATA[
+			import com.google.maps.LatLng;
+			import com.google.maps.Map;
+			import com.google.maps.MapEvent;
+			import com.google.maps.MapOptions;
+			import com.google.maps.MapType;
+			import com.google.maps.controls.ControlPosition;
+			import com.google.maps.controls.ZoomControlOptions;
+			import com.google.maps.controls.ZoomControl;
+			
+			import mx.collections.ArrayCollection;
+			
+			public var mapCreation:Boolean=false;
+			
+			private function onMapPreinitialize(event:Event):void {
+				var myMapOptions:MapOptions = new MapOptions();         
+				myMapOptions.zoom = 16;           
+				myMapOptions.center = new LatLng(31,121);           
+				myMapOptions.mapType = MapType.NORMAL_MAP_TYPE;
+				this.map.setInitOptions(myMapOptions);         
+			} 
+			
+			protected function map_mapevent_mapreadyHandler(event:MapEvent):void
+			{
+				map.setCenter(new LatLng(31.232803,121.475315),16,MapType.NORMAL_MAP_TYPE);
+				var topRight:ControlPosition=new ControlPosition(ControlPosition.ANCHOR_TOP_LEFT, 10, 10)
+				var myZoomControl:ZoomControl=new ZoomControl(new ZoomControlOptions({position:topRight}));
+				map.addControl(myZoomControl);
+				mapCreation=true;
+			}
+
+			public function mapChange(pos:ArrayCollection):void
+			{
+				map.setCenter(new LatLng(pos.getItemAt(0).toString(),pos.getItemAt(1).toString()), 
+					16, MapType.NORMAL_MAP_TYPE); 
+			}
+
+		]]>
+	</fx:Script>
+	<maps:Map xmlns:maps="com.google.maps.*"
+			  mapevent_mappreinitialize="onMapPreinitialize(event)"
+			  mapevent_mapready="map_mapevent_mapreadyHandler(event)"
+			  id="map" width="100%" height="100%" language="en" 
+			  key="ABQIAAAAf8kBklVINBH57uW5fc4XsxQXYqLaR-fWxccu-_4UxzscUefeqxTdG72_LKqxz80dsozusxRmTjTiTw"/> 
+</s:Group>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:ATE="http://ns.adobe.com/ate/2009" 
+		 xmlns:ai="http://ns.adobe.com/ai/2009" 
+		 xmlns:fc="http://ns.adobe.com/flashcatalyst/2009" 
+		 xmlns:d="http://ns.adobe.com/fxg/2008/dt" 
+		 xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:lib="assets.graphics.metro_map_color_original.*" 
+		 xmlns:flm="http://ns.adobe.com/flame/2008">
+	<fx:DesignLayer d:id="38" d:userLabel="line10">
+		<s:Group flm:knockout="false" d:userLabel="10 p" x="1402" y="454">
+			<s:Path data="M 284.297 5.28 L 279.84 5.28 C 278.382 5.28 277.2 4.098 277.2 2.64 C 277.2 1.182 278.382 0 279.84 0 L 284.297 0 C 285.755 0 286.937 1.182 286.937 2.64 C 286.937 4.098 285.755 5.28 284.297 5.28 Z M 269.939 5.28 L 260.04 5.28 C 258.582 5.28 257.4 4.098 257.4 2.64 C 257.4 1.182 258.582 0 260.04 0 L 269.939 0 C 271.397 0 272.579 1.182 272.579 2.64 C 272.579 4.098 271.397 5.28 269.939 5.28 Z M 250.14 5.28 L 240.239 5.28 C 238.781 5.28 237.6 4.098 237.6 2.64 C 237.6 1.182 238.781 0 240.239 0 L 250.14 0 C 251.598 0 252.779 1.182 252.779 2.64 C 252.779 4.098 251.598 5.28 250.14 5.28 Z M 230.34 5.28 L 220.439 5.28 C 218.981 5.28 217.8 4.098 217.8 2.64 C 217.8 1.182 218.981 0 220.439 0 L 230.34 0 C 231.798 0 232.979 1.182 232.979 2.64 C 232.979 4.098 231.798 5.28 230.34 5.28 Z M 210.54 5.28 L 200.64 5.28 C 199.182 5.28 198 4.098 198 2.64 C 198 1.182 199.182 0 200.64 0 L 210.54 0 C 211.998 0 213.18 1.182 213.18 2.64 C 213.18 4.098 211.998 5.28 210.54 5.28 Z M 190.739 5.28 L 180.84 5.28 C 179.382 5.28 178.2 4.098 178.2 2.64 C 178.2 1.182 179.382 0 180.84 0 L 190.739 0 C 192.197 0 193.379 1.182 193.379 2.64 C 193.379 4.098 192.197 5.28 190.739 5.28 Z M 170.939 5.28 L 161.04 5.28 C 159.582 5.28 158.4 4.098 158.4 2.64 C 158.4 1.182 159.582 0 161.04 0 L 170.939 0 C 172.397 0 173.579 1.182 173.579 2.64 C 173.579 4.098 172.397 5.28 170.939 5.28 Z M 151.14 5.28 L 141.239 5.28 C 139.781 5.28 138.6 4.098 138.6 2.64 C 138.6 1.182 139.781 0 141.239 0 L 151.14 0 C 152.598 0 153.779 1.182 153.779 2.64 C 153.779 4.098 152.598 5.28 151.14 5.28 Z M 131.34 5.28 L 121.439 5.28 C 119.981 5.28 118.8 4.098 118.8 2.64 C 118.8 1.182 119.981 0 121.439 0 L 131.34 0 C 132.798 0 133.979 1.182 133.979 2.64 C 133.979 4.098 132.798 5.28 131.34 5.28 Z M 111.54 5.28 L 101.64 5.28 C 100.182 5.28 99 4.098 99 2.64 C 99 1.182 100.182 0 101.64 0 L 111.54 0 C 112.998 0 114.18 1.182 114.18 2.64 C 114.18 4.098 112.998 5.28 111.54 5.28 Z M 91.739 5.28 L 81.84 5.28 C 80.382 5.28 79.2 4.098 79.2 2.64 C 79.2 1.182 80.382 0 81.84 0 L 91.739 0 C 93.197 0 94.379 1.182 94.379 2.64 C 94.379 4.098 93.197 5.28 91.739 5.28 Z M 71.94 5.28 L 62.04 5.28 C 60.582 5.28 59.4 4.098 59.4 2.64 C 59.4 1.182 60.582 0 62.04 0 L 71.94 0 C 73.398 0 74.579 1.182 74.579 2.64 C 74.579 4.098 73.398 5.28 71.94 5.28 Z M 52.14 5.28 L 42.239 5.28 C 40.781 5.28 39.6 4.098 39.6 2.64 C 39.6 1.182 40.781 0 42.239 0 L 52.14 0 C 53.598 0 54.779 1.182 54.779 2.64 C 54.779 4.098 53.598 5.28 52.14 5.28 Z M 32.34 5.28 L 22.44 5.28 C 20.981 5.28 19.8 4.098 19.8 2.64 C 19.8 1.182 20.981 0 22.44 0 L 32.34 0 C 33.798 0 34.98 1.182 34.98 2.64 C 34.98 4.098 33.798 5.28 32.34 5.28 Z M 12.54 5.28 L 2.64 5.28 C 1.182 5.28 0 4.098 0 2.64 C 0 1.182 1.182 0 2.64 0 L 12.54 0 C 13.998 0 15.18 1.182 15.18 2.64 C 15.18 4.098 13.998 5.28 12.54 5.28 Z" winding="nonZero" x="0.09" y="0.762">
+				<s:fill>
+					<s:SolidColor color="#B4B4B5"/>
+				</s:fill>
+			</s:Path>
+		</s:Group>
+		<s:Path data="M 2.64 597.658 L 136.161 597.658 L 197.019 658.515 L 355.431 658.515 L 430.327 658.515 L 519.621 569.22 L 798.795 569.22 L 798.795 494.97 L 767.105 463.275 L 767.105 411.451 L 810.708 367.847 L 810.708 304.67 L 883.111 232.267 L 883.111 2.64" d:userLabel="10" winding="nonZero" x="513.124" y="457.14">
+			<s:stroke>
+				<s:SolidColorStroke color="#C595BD" miterLimit="4" weight="5.28"/>
+			</s:stroke>
+		</s:Path>
+		<s:Group d:userLabel="10" x="1340" y="424">
+			<s:Rect height="18" radiusX="2.24918" radiusY="2.24387" width="50" x="0" y="0">
+				<s:fill>
+					<s:SolidColor color="#C595BD"/>
+				</s:fill>
+			</s:Rect>
+			<s:RichText ai:aa="2" color="#FFFFFF" columnCount="1" fontFamily="Arial" fontSize="12.32" fontWeight="bold" d:id="39" kerning="off" lineHeight="175%" tabStops="S57.0239906311035" text="Line 10" textAlign="center" d:userLabel="Line 10" flm:variant="24" whiteSpaceCollapse="preserve" x="3" y="4"/>
+		</s:Group>
+		<s:Group d:userLabel="10" x="542" y="1065">
+			<s:Rect height="18" radiusX="2.24653" radiusY="2.24653" width="50" x="0" y="0">
+				<s:fill>
+					<s:SolidColor color="#C595BD"/>
+				</s:fill>
+			</s:Rect>
+			<s:RichText ai:aa="2" color="#FFFFFF" columnCount="1" fontFamily="Arial" fontSize="12.32" fontWeight="bold" d:id="40" kerning="off" lineHeight="175%" tabStops="S57.0239906311035" text="Line 10" textAlign="center" d:userLabel="Line 10" flm:variant="25" whiteSpaceCollapse="preserve" x="4.043" y="4"/>
+		</s:Group>
+		<s:Group d:userLabel="10" x="531" y="1150">
+			<s:Rect height="17" radiusX="2.24564" radiusY="2.24564" width="51" x="0" y="0">
+				<s:fill>
+					<s:SolidColor color="#C595BD"/>
+				</s:fill>
+			</s:Rect>
+			<s:RichText ai:aa="2" color="#FFFFFF" columnCount="1" fontFamily="Arial" fontSize="12.672" fontWeight="bold" d:id="41" kerning="off" lineHeight="175%" tabStops="S57.0239906311035" text="Line 10" textAlign="center" d:userLabel="Line 10" flm:variant="26" whiteSpaceCollapse="preserve" x="4" y="3"/>
+		</s:Group>
+		<s:Group d:userLabel="10 p" x="1702" y="458">
+			<s:Rect height="17" radiusX="2.24564" radiusY="2.24564" width="50" x="0" y="0">
+				<s:fill>
+					<s:SolidColor color="#B4B4B5"/>
+				</s:fill>
+			</s:Rect>
+			<s:RichText ai:aa="2" color="#FFFFFF" columnCount="1" fontFamily="Arial" fontSize="12.32" fontWeight="bold" d:id="42" kerning="off" lineHeight="175%" tabStops="S57.0239906311035" text="Line 10" textAlign="center" d:userLabel="Line 10" flm:variant="27" whiteSpaceCollapse="preserve" x="4" y="3"/>
+		</s:Group>
+		<s:Path data="M 106.003 2.64 L 67.116 41.528 L 2.64 41.528" winding="nonZero" x="602.431" y="1112.44">
+			<s:stroke>
+				<s:SolidColorStroke color="#C595BD" miterLimit="4" weight="5.28"/>
+			</s:stroke>
+		</s:Path>
+	</fx:DesignLayer>
+</s:Group>

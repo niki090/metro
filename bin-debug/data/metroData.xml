@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<stations>
+	<station>
+		<id>117</id>
+		<name_en>Xinzha Rd.</name_en>
+		<name_cn>新闸路</name_cn>
+		<metro>1,</metro>
+		<location>near Jiujiang Rd.,Xizang Rd. N.</location>
+		<coordinate>31.238399,121.468159</coordinate>
+	</station>
+	<station>
+		<id>118</id>
+		<name_en>People's Square</name_en>
+		<name_cn>人民广场</name_cn>
+		<metro>1,2,8</metro>
+		<location>near Huanghe Rd.,Jiujiang Rd.</location>
+		<coordinate>31.232803,121.475315</coordinate>
+	</station>
+	<station>
+		<id>119</id>
+		<name_en>Huangpi Rd. S.</name_en>
+		<name_cn>黄陂南路</name_cn>
+		<metro>1,</metro>
+		<location>near Madang Rd.</location>
+		<coordinate>31.223289,121.474242</coordinate>
+	</station>
+	<station>
+		<id>123</id>
+		<name_en>Changshu Rd.</name_en>
+		<name_cn>常熟路</name_cn>
+		<metro>1,7</metro>
+		<location>near Madang Rd.</location>
+		<coordinate>31.223289,121.474242</coordinate>
+	</station>
+	<station>
+		<id>456</id>
+		<name_en>Sichuan Rd. N.</name_en>
+		<name_cn>四川北路</name_cn>
+		<metro>10,</metro>
+		<location>near Qiujiang Rd.</location>
+		<coordinate>31.251855,121.484145</coordinate>
+	</station>
+	<station>
+		<id>101</id>
+		<name_en>Fujin Rd.</name_en>
+		<name_cn>富锦路</name_cn>
+		<metro>1,</metro>
+		<location>near Qiujiang Rd.</location>
+		<coordinate>31.251855,121.484145</coordinate>
+	</station>
+	<station>
+		<id>701</id>
+		<name_en>Meilan Lake</name_en>
+		<name_cn>美兰湖</name_cn>
+		<metro>7,</metro>
+		<location>near Qiujiang Rd.</location>
+		<coordinate>31.251855,121.484145</coordinate>
+	</station>
+	<station>
+		<id>305</id>
+		<name_en>Zhenpin Rd.</name_en>
+		<name_cn>镇坪路</name_cn>
+		<metro>3,4,7</metro>
+		<location>near Qiujiang Rd.</location>
+		<coordinate>31.251855,121.484145</coordinate>
+	</station>
+	<station>
+		<id>211</id>
+		<name_en>Zhongshan Park</name_en>
+		<name_cn>中山公园</name_cn>
+		<metro>2,3,4</metro>
+		<location>near Qiujiang Rd.</location>
+		<coordinate>31.251855,121.484145</coordinate>
+	</station>
+	<station>
+		<id>225</id>
+		<name_en>Century Avenue</name_en>
+		<name_cn>世纪大道</name_cn>
+		<metro>2,4,6,9</metro>
+		<location>near Qiujiang Rd.</location>
+		<coordinate>31.251855,121.484145</coordinate>
+	</station>
+	<station>
+		<id>404</id>
+		<name_en>Lancun Rd.</name_en>
+		<name_cn>蓝村路</name_cn>
+		<metro>4,6</metro>
+		<location>near Qiujiang Rd.</location>
+		<coordinate>31.251855,121.484145</coordinate>
+	</station>
+	<station>
+		<id>333</id>
+		<name_en>Hongkou Football Stadium</name_en>
+		<name_cn>虹口足球场</name_cn>
+		<metro>3,8</metro>
+		<location>near Qiujiang Rd.</location>
+		<coordinate>31.251855,121.484145</coordinate>
+	</station>
+</stations>

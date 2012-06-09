@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<directory>
+	<venue>
+		<id>300</id>
+		<name>MAJESTY PLAZA</name>
+		<type>Accommodation</type>
+		<link>http://www.shanghaidaily.com</link>
+		<address>Unit 1B-3, 3211 Hongmei Road</address>
+		<stations>
+			<station>117</station>
+		</stations>
+		<tags>spa,massage,leisure</tags>
+	</venue>
+	<venue>
+		<id>301</id>
+		<name>Manpo Boutique Hotel Shanghai</name>
+		<type>Accommodation</type>
+		<link>http://www.shanghaidaily.com</link>
+		<address>No. 102, Building E, Lane 550, Shaanxi Road S.</address>
+		<stations>
+			<station>117</station>
+		</stations>
+		<tags>4-star,Youth</tags>
+	</venue>
+	<venue>
+		<id>302</id>
+		<name>Lane Small Wonton Eatery</name>
+		<type>Dining</type>
+		<link>http://www.shanghaidaily.com</link>
+		<address>Unit 1-108, Shanghai 1933, No.10 shajing Road</address>
+		<stations>
+			<station>117</station>
+			<station>118</station>
+		</stations>
+		<tags>4-star,Youth</tags>
+	</venue>
+	<venue>
+		<id>303</id>
+		<name>Cafe Sambal</name>
+		<type>Dining</type>
+		<link>http://www.shanghaidaily.com</link>
+		<address>425 Dingxiang Rd, Pudong, near the Century Avenue</address>
+		<stations>
+			<station>117</station>
+		</stations>
+		<tags>4-star,Youth</tags>
+	</venue>
+	<venue>
+		<id>304</id>
+		<name>Venus Spring</name>
+		<type>Body & Soul</type>
+		<link>http://www.shanghaidaily.com</link>
+		<address>No. 2, Lane 131 Yongfu Road</address>
+		<stations>
+			<station>117</station>
+			<station>118</station>
+		</stations>
+		<tags>4-star,Youth</tags>
+	</venue>
+	<venue>
+		<id>305</id>
+		<name>Hinata Ya</name>
+		<type>Shops</type>
+		<link>http://www.shanghaidaily.com</link>
+		<address>Unit 201, 47 Yongfu Road</address>
+		<stations>
+			<station>117</station>
+			<station>118</station>
+		</stations>
+		<tags>4-star,Youth</tags>
+	</venue>
+	<venue>
+		<id>306</id>
+		<name>D.I.S</name>
+		<type>Shops</type>
+		<link>http://www.shanghaidaily.com</link>
+		<address>Unit 201, 47 Yongfu Road</address>
+		<stations>
+			<station>117</station>
+			<station>118</station>
+		</stations>
+		<tags>4-star,Youth</tags>
+	</venue>
+</directory>

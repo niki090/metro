@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schedules>
+	<schedule>
+		<clock>1</clock>
+		<direction>Xinzhuang</direction>
+		<first>5:30</first>
+		<first>22:30</first>
+	</schedule>
+	<schedule>
+		<clock>2</clock>
+		<direction>Fujin Rd</direction>
+		<first>5:43</first>
+		<first>23:08</first>
+	</schedule>
+	<schedule>
+		<clock>2</clock>
+		<direction>Xinzhuang</direction>
+		<first>5:30</first>
+		<first>23:00</first>
+	</schedule>
+</schedules>
